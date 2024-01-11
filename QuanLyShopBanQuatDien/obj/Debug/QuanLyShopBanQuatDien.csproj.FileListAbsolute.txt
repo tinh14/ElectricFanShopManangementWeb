@@ -1,0 +1,5 @@
+D:\Projects\C# Projects\QuanLyShopBanQuatDien\QuanLyShopBanQuatDien\bin\QuanLyShopBanQuatDien.dll
+D:\Projects\C# Projects\QuanLyShopBanQuatDien\QuanLyShopBanQuatDien\bin\QuanLyShopBanQuatDien.pdb
+D:\Projects\C# Projects\QuanLyShopBanQuatDien\QuanLyShopBanQuatDien\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\C# Projects\QuanLyShopBanQuatDien\QuanLyShopBanQuatDien\obj\Debug\QuanLyShopBanQuatDien.dll
+D:\Projects\C# Projects\QuanLyShopBanQuatDien\QuanLyShopBanQuatDien\obj\Debug\QuanLyShopBanQuatDien.pdb
