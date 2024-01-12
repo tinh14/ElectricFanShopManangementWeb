@@ -59,6 +59,7 @@
     <Content Include="Pages\img.jpg" />
     <Content Include="Pages\products.aspx" />
     <Content Include="Resources\Custom\Css\main.css" />
+    <Content Include="Resources\Custom\Js\table-datasource-config.js" />
     <Content Include="Resources\Custom\Js\main.js" />
     <Content Include="Resources\Libs\bootstrap-4.5.3\css\bootstrap-grid.css" />
     <Content Include="Resources\Libs\bootstrap-4.5.3\css\bootstrap-grid.min.css" />
@@ -70,6 +71,8 @@
     <Content Include="Resources\Libs\bootstrap-4.5.3\js\bootstrap.bundle.min.js" />
     <Content Include="Resources\Libs\bootstrap-4.5.3\js\bootstrap.js" />
     <Content Include="Resources\Libs\bootstrap-4.5.3\js\bootstrap.min.js" />
+    <Content Include="Resources\Libs\data-tables\dataTables.bootstrap4.min.js" />
+    <Content Include="Resources\Libs\data-tables\jquery.dataTables.min.js" />
     <Content Include="Resources\Libs\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Resources\Libs\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Resources\Libs\font-awesome-4.7.0\HELP-US-OUT.txt" />
@@ -83,6 +86,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\CategoryEntity.cs" />
+    <Compile Include="Entities\ProductEntity.cs" />
     <Compile Include="Pages\orders.aspx.cs">
       <DependentUpon>orders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

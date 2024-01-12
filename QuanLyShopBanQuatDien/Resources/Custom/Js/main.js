@@ -17,5 +17,7 @@
     var path = window.location.pathname;
     var endpoint = path.substring(path.lastIndexOf('/') + 1);
     $('#sidebar a').addClass('btn-light text-secondary').removeClass('btn-primary active');
-    $('#'+endpointMapper[endpoint]).removeClass('btn-light text-secondary').addClass(' btn-primary active');
+    $('#' + endpointMapper[endpoint]).removeClass('btn-light text-secondary').addClass(' btn-primary active');
+
+    $('thead').addClass('thead-light');
 });

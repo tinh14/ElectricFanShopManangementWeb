@@ -40,15 +40,6 @@ namespace QuanLyShopBanQuatDien.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// sidebar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel sidebar;
-        
-        /// <summary>
         /// userAvatarImageButton control.
         /// </summary>
         /// <remarks>
@@ -200,5 +191,14 @@ namespace QuanLyShopBanQuatDien.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder mainContentPlaceHolder;
+        
+        /// <summary>
+        /// script control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder script;
     }
 }

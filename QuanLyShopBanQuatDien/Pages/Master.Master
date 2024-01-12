@@ -9,6 +9,7 @@
     </title>
     <link rel="Stylesheet" href="../Resources/Libs/bootstrap-4.5.3/css/bootstrap.min.css" />
     <link rel="Stylesheet" href="../Resources/Libs/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
     <link rel="Stylesheet" href="../Resources/Custom/Css/main.css" />
     <asp:ContentPlaceHolder ID="headContentPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
@@ -16,8 +17,7 @@
 <body class="overflow-hidden">
     <form id="form" runat="server">
     <div id="app" class="container-fluid d-flex">
-        <asp:Panel ID="sidebar" class="bg-light py-0 px-2 flex-column justify-content-center font-weight-bold overflow-auto border"
-            runat="server">
+        <div ID="sidebar" class=" bg-light py-0 px-2 flex-column justify-content-center font-weight-bold overflow-auto border">
             <div class="d-flex mt-2 mb-2 align-items-center border-bottom pb-2">
                 <asp:ImageButton ID="userAvatarImageButton" class="rounded-circle" ImageUrl="img.jpg"
                     Width="50" Height="50" runat="server" />
@@ -91,8 +91,8 @@
                     <i class="fa fa-sign-out mr-2"></i>
                     <span class="font-weight-bold">Đăng xuất</span>
             </asp:LinkButton>
-        </asp:Panel>
-        <div id="main" class="flex-grow-1 d-flex flex-column">
+        </div>
+        <div id="main" class="d-flex flex-column">
             <asp:ContentPlaceHolder ID="mainContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
         </div>
@@ -100,6 +100,15 @@
     </form>
     <script type="text/javascript" src="../Resources/Libs/jquery-3.7.1/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="../Resources/Libs/bootstrap-4.5.3/js/bootstrap.min.js"></script>
+    <%--<script type="text/javascript" src="../Resources/Libs/data-tables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="../Resources/Libs/data-tables/jquery.dataTables.min.js"></script>
+    --%>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="../Resources/Custom/Js/main.js"></script>
+    <asp:ContentPlaceHolder ID="script" runat="server">
+    
+    </asp:ContentPlaceHolder>
 </body>
 </html>

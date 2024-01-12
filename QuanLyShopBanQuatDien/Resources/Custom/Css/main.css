@@ -9,16 +9,60 @@
     background: #fff;
 }
 
-.container-fluid 
+.container-fluid
 {
     padding: 0;
     margin: 0;
 }
 
+#app 
+{
+    height: 100vh;
+    width: 100vw;
+}
 
 #sidebar
 {
-    height: 100vh;
+    height: 100%;
     width: 18%;
 }
 
+#main
+{
+    height: 100%;
+    width: 82%;
+}
+
+table
+{
+    width: 100%;
+}
+
+td, th
+{
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+tbody tr:hover
+{
+    cursor: pointer;
+}
+
+td 
+{
+    text-align: center;
+    vertical-align: center;
+}
+
+#main #header 
+{
+    height: 8vh;
+}
+
+#main #body 
+{
+    height: 92vh;
+}
