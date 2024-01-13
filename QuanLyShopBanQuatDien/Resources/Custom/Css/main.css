@@ -51,15 +51,14 @@ tbody tr:hover
     cursor: pointer;
 }
 
-td 
-{
-    text-align: center;
-    vertical-align: center;
-}
-
 #main #header 
 {
     height: 8vh;
+}
+
+table 
+{
+    height: 70vh;
 }
 
 #main #body 

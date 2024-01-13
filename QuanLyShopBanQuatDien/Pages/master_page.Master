@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="QuanLyShopBanQuatDien.Pages.Master" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master_page.Master.cs"
+    Inherits="QuanLyShopBanQuatDien.Pages.master_page" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +10,7 @@
     </title>
     <link rel="Stylesheet" href="../Resources/Libs/bootstrap-4.5.3/css/bootstrap.min.css" />
     <link rel="Stylesheet" href="../Resources/Libs/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="../Resources/Libs/data-tables/dataTables.bootstrap4.min.css">
     <link rel="Stylesheet" href="../Resources/Custom/Css/main.css" />
     <asp:ContentPlaceHolder ID="headContentPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
@@ -17,7 +18,7 @@
 <body class="overflow-hidden">
     <form id="form" runat="server">
     <div id="app" class="container-fluid d-flex">
-        <div ID="sidebar" class=" bg-light py-0 px-2 flex-column justify-content-center font-weight-bold overflow-auto border">
+        <div id="sidebar" class=" bg-light py-0 px-2 flex-column justify-content-center font-weight-bold overflow-auto border">
             <div class="d-flex mt-2 mb-2 align-items-center border-bottom pb-2">
                 <asp:ImageButton ID="userAvatarImageButton" class="rounded-circle" ImageUrl="img.jpg"
                     Width="50" Height="50" runat="server" />
@@ -27,72 +28,73 @@
                 </div>
             </div>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="homeLinkButton" href="home.aspx" runat="server">
+                ID="homeLinkButton" href="home_page.aspx" runat="server">
                     <i class="fa fa-home mr-2"></i>
                     <span class="font-weight-bold">Trang chủ</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="orderLinkButton" href="orders.aspx" runat="server">
+                ID="orderLinkButton" href="order_page.aspx" runat="server">
                     <i class="fa fa-file-text-o mr-2"></i>
                     <span class="font-weight-bold">Hóa đơn</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="GRNLinkButton" href="grns.aspx" runat="server">
+                ID="GRNLinkButton" href="grn_page.aspx" runat="server">
                     <i class="fa fa-file-o mr-2"></i>
                     <span class="font-weight-bold">Phiếu nhập</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="productLinkButton" href="products.aspx" runat="server">
+                ID="productLinkButton" href="product_page.aspx" runat="server">
                     <i class="fa fa-cube mr-2"></i>
                     <span class="font-weight-bold">Sản phẩm</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="categoryLinkButton" href="categories.aspx" runat="server">
+                ID="categoryLinkButton" href="category_page.aspx" runat="server">
                     <i class="fa fa-tags mr-2"></i>
                     <span class="font-weight-bold">Loại sản phẩm</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="customerLinkButotn" href="customers.aspx" runat="server">
+                ID="customerLinkButotn" href="customer_page.aspx" runat="server">
                     <i class="fa fa-address-card mr-2"></i>
                     <span class="font-weight-bold">Khách hàng</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="supplierLinkButton" href="suppliers.aspx" runat="server">
+                ID="supplierLinkButton" href="supplier_page.aspx" runat="server">
                     <i class="fa fa-truck  mr-2"></i>
                     <span class="font-weight-bold">Nhà cung cấp</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="userLinkButton" href="users.aspx" runat="server">
+                ID="userLinkButton" href="user_page.aspx" runat="server">
                     <i class="fa fa-user mr-2"></i>
                     <span class="font-weight-bold">Người dùng</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0 mb-5"
-                ID="statisticsLinkButton" href="statistics.aspx" runat="server">
+                ID="statisticsLinkButton" href="statistic_page.aspx" runat="server">
                     <i class="fa fa-bar-chart-o mr-2"></i>
                     <span class="font-weight-bold">Thống kê</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="roleLinkButton" href="roles.aspx" runat="server">
+                ID="roleLinkButton" href="role_page.aspx" runat="server">
                     <i class="fa fa-shield mr-2"></i>
                     <span class="font-weight-bold">Vai trò</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="activityLogLinkButton" href="activities_log.aspx" runat="server">
+                ID="activityLogLinkButton" href="activities_log_page.aspx" runat="server">
                     <i class="fa fa-history mr-2"></i>
                     <span class="font-weight-bold">Nhật ký hoạt động</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="operationLogLinkButton" href="operations_log.aspx" runat="server">
+                ID="operationLogLinkButton" href="operations_log_page.aspx" runat="server">
                     <i class="fa fa-history mr-2"></i>
                     <span class="font-weight-bold">Nhật ký thao tác</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="signoutLinkButton" href="signin.aspx" runat="server">
+                ID="signoutLinkButton" runat="server" 
+                onclick="signoutLinkButton_Click">
                     <i class="fa fa-sign-out mr-2"></i>
                     <span class="font-weight-bold">Đăng xuất</span>
             </asp:LinkButton>
         </div>
-        <div id="main" class="d-flex flex-column">
+        <div id="main" class="d-flex flex-column bg-light">
             <asp:ContentPlaceHolder ID="mainContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
         </div>
@@ -100,15 +102,10 @@
     </form>
     <script type="text/javascript" src="../Resources/Libs/jquery-3.7.1/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="../Resources/Libs/bootstrap-4.5.3/js/bootstrap.min.js"></script>
-    <%--<script type="text/javascript" src="../Resources/Libs/data-tables/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="../Resources/Libs/data-tables/jquery.dataTables.min.js"></script>
-    --%>
-
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="../Resources/Libs/data-tables/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="../Resources/Custom/Js/main.js"></script>
     <asp:ContentPlaceHolder ID="script" runat="server">
-    
     </asp:ContentPlaceHolder>
 </body>
 </html>

@@ -8,15 +8,15 @@ using QuanLyShopBanQuatDien.Pages.Utils;
 
 namespace QuanLyShopBanQuatDien.Pages
 {
-    public partial class Master : System.Web.UI.MasterPage
+    public partial class home_page : System.Web.UI.Page
     {
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            SecurityManager.authenticate(this);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-                return;
-            }
-
         }
     }
 }

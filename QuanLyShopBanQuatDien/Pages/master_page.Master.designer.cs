@@ -10,7 +10,7 @@
 namespace QuanLyShopBanQuatDien.Pages {
     
     
-    public partial class Master {
+    public partial class master_page {
         
         /// <summary>
         /// titleContentPlaceHolder control.

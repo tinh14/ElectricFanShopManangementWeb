@@ -54,10 +54,12 @@
     <Content Include="App_Data\QuanLyShopBanQuatDien_log.ldf">
       <DependentUpon>QuanLyShopBanQuatDien.mdf</DependentUpon>
     </Content>
-    <Content Include="Pages\orders.aspx" />
-    <Content Include="Pages\home.aspx" />
+    <Content Include="Pages\access_denied.aspx" />
     <Content Include="Pages\img.jpg" />
-    <Content Include="Pages\products.aspx" />
+    <Content Include="Pages\home_page.aspx" />
+    <Content Include="Pages\product_info.aspx" />
+    <Content Include="Pages\product_page.aspx" />
+    <Content Include="Pages\signin_page.aspx" />
     <Content Include="Resources\Custom\Css\main.css" />
     <Content Include="Resources\Custom\Js\table-datasource-config.js" />
     <Content Include="Resources\Custom\Js\main.js" />
@@ -71,12 +73,15 @@
     <Content Include="Resources\Libs\bootstrap-4.5.3\js\bootstrap.bundle.min.js" />
     <Content Include="Resources\Libs\bootstrap-4.5.3\js\bootstrap.js" />
     <Content Include="Resources\Libs\bootstrap-4.5.3\js\bootstrap.min.js" />
+    <Content Include="Resources\Libs\data-tables\dataTables.bootstrap4.min.css" />
     <Content Include="Resources\Libs\data-tables\dataTables.bootstrap4.min.js" />
-    <Content Include="Resources\Libs\data-tables\jquery.dataTables.min.js" />
+    <Content Include="Resources\Libs\font-awesome-4.7.0\data-tables\dataTables.bootstrap4.min.js" />
+    <Content Include="Resources\Libs\font-awesome-4.7.0\data-tables\jquery.dataTables.min.js" />
     <Content Include="Resources\Libs\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Resources\Libs\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Resources\Libs\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Resources\Libs\jquery-3.7.1\jquery-3.7.1.min.js" />
+    <Content Include="Resources\Libs\data-tables\jquery.dataTables.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -86,41 +91,77 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CategoryDAO.cs" />
+    <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\RolePermissionDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="Database\DatabaseConnectionProvider.cs" />
+    <Compile Include="Database\DatabaseQueryExecutor.cs" />
     <Compile Include="Entities\CategoryEntity.cs" />
+    <Compile Include="Entities\PermissionEntity.cs" />
     <Compile Include="Entities\ProductEntity.cs" />
-    <Compile Include="Pages\orders.aspx.cs">
-      <DependentUpon>orders.aspx</DependentUpon>
+    <Compile Include="Entities\RoleEntity.cs" />
+    <Compile Include="Entities\RolePermissionEntity.cs" />
+    <Compile Include="Entities\UserEntity.cs" />
+    <Compile Include="Mappers\CategoryMapper.cs" />
+    <Compile Include="Mappers\ProductMapper.cs" />
+    <Compile Include="Mappers\RowMapper.cs" />
+    <Compile Include="Mappers\UserMapper.cs" />
+    <Compile Include="Pages\access_denied.aspx.cs">
+      <DependentUpon>access_denied.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\orders.aspx.designer.cs">
-      <DependentUpon>orders.aspx</DependentUpon>
+    <Compile Include="Pages\access_denied.aspx.designer.cs">
+      <DependentUpon>access_denied.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\home.aspx.cs">
-      <DependentUpon>home.aspx</DependentUpon>
+    <Compile Include="Pages\home_page.aspx.cs">
+      <DependentUpon>home_page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\home.aspx.designer.cs">
-      <DependentUpon>home.aspx</DependentUpon>
+    <Compile Include="Pages\home_page.aspx.designer.cs">
+      <DependentUpon>home_page.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Master.Master.cs">
-      <DependentUpon>Master.Master</DependentUpon>
+    <Compile Include="Pages\master_page.Master.cs">
+      <DependentUpon>master_page.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Master.Master.designer.cs">
-      <DependentUpon>Master.Master</DependentUpon>
+    <Compile Include="Pages\master_page.Master.designer.cs">
+      <DependentUpon>master_page.Master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\products.aspx.cs">
-      <DependentUpon>products.aspx</DependentUpon>
+    <Compile Include="Pages\product_info.aspx.cs">
+      <DependentUpon>product_info.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\products.aspx.designer.cs">
-      <DependentUpon>products.aspx</DependentUpon>
+    <Compile Include="Pages\product_info.aspx.designer.cs">
+      <DependentUpon>product_info.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\product_page.aspx.cs">
+      <DependentUpon>product_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\product_page.aspx.designer.cs">
+      <DependentUpon>product_page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\signin_page.aspx.cs">
+      <DependentUpon>signin_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\signin_page.aspx.designer.cs">
+      <DependentUpon>signin_page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Utils\DataUtils.cs" />
+    <Compile Include="Pages\Utils\PageStatusManager.cs" />
     <Compile Include="Pages\Utils\PageUtils.cs" />
+    <Compile Include="Pages\Utils\SecurityManager.cs" />
+    <Compile Include="Pages\Utils\UserSessionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\CategoryService.cs" />
+    <Compile Include="Service\ProductService.cs" />
+    <Compile Include="Service\RolePermissionService.cs" />
+    <Compile Include="Service\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pages\Master.Master" />
+    <Content Include="Pages\master_page.Master" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

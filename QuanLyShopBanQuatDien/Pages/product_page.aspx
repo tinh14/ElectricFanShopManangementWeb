@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Master.Master" AutoEventWireup="true"
-    CodeBehind="products.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.products" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/master_page.Master" AutoEventWireup="true"
+    CodeBehind="product_page.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.product_page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titleContentPlaceHolder" runat="server">
     Sản phẩm
@@ -13,63 +13,61 @@
     </div>
     <div id="body" class="bg-light">
         <div class="d-flex justify-content-between pl-4 py-3">
-            <div class="row">
-                <div class="col-6">
+            <div class="flex-grow-1 row">
+                <div class="col-5">
                     <div class="input-group rounded shadow">
-                        <input type="text" class="form-control" placeholder="Tìm theo tên...">
+                        <asp:TextBox ID="findProductTextBox" class="form-control" placeholder="Tìm sản phẩm..."
+                            runat="server"></asp:TextBox>
                         <div class="input-group-append">
-                            <button class="btn btn-outline-primary" type="button">
+                            <asp:LinkButton ID="findButton" class="btn btn-outline-primary" runat="server" OnClick="findButton_Click">
                                 <i class="fa fa-search mr-1"></i><span>Tìm</span>
-                            </button>
+                            </asp:LinkButton>
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <div class="input-group shadow">
                         <span class="input-group-text bg-outline-primary"><i class="fa fa-tags mr-2"></i>Loại
                         </span>
-                        <asp:DropDownList ID="categoryFilterDropdownList" class="custom-select" runat="server">
-                            <asp:ListItem Value="all" Text="Tất cả"></asp:ListItem>
+                        <asp:DropDownList ID="categoryFilterDropdownList" DataTextField="name" DataValueField="code"
+                            class="custom-select" AppendDataBoundItems="true" runat="server" AutoPostBack="true"
+                            OnSelectedIndexChanged="categoryFilterDropdownList_SelectedIndexChanged">
+                            <asp:ListItem Text="Tất cả" Value="all" />
                         </asp:DropDownList>
                     </div>
                 </div>
             </div>
-            <div class="d-flex">
-                <div class="d-flex justify-content-end mr-3">
-                    <button class="btn shadow btn btn-primary" id="addButton" runat="server">
+            <div class="d-flex justify-content-end mr-4">
+                <asp:LinkButton ID="addButton" href="product_info.aspx" class="btn shadow btn btn-primary"
+                    runat="server">
                         <i class="fa fa-plus mr-2"></i><span>Thêm mới</span>
-                    </button>
-                </div>
-                <div class="d-flex justify-content-end mr-4">
-                    <button class="btn shadow btn btn-outline-danger" id="Button1" runat="server">
-                        <i class="fa fa-trash mr-2"></i><span>Xóa</span>
-                    </button>
-                </div>
+                </asp:LinkButton>
             </div>
         </div>
         <div class="row px-4">
             <div class="col-12">
                 <asp:GridView ID="productGridView" class="bg-white rounded shadow table table-hover table-responsive table-bordered text-center overflow-auto"
-                    runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true" OnRowDataBound="productGridView_RowDataBound">
+                    runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true" EmptyDataText="Không có sản phẩm" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
+                    OnRowDataBound="productGridView_RowDataBound" OnRowCommand="productGridView_RowCommand">
                     <Columns>
-                        <asp:TemplateField HeaderText="Select">
-                            <HeaderTemplate>
-                                <asp:CheckBox ID="HeaderCheckBox" runat="server" />
-                            </HeaderTemplate>
+                        <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:CheckBox ID="CheckBox1" runat="server" />
+                                <asp:LinkButton class="btn btn-outline-primary" runat="server" CommandName="Select"
+                                    CommandArgument='<%# Container.DataItemIndex %>'>
+                                    <i class="fa fa-edit"></i>
+                                </asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Ảnh">
                             <ItemTemplate>
-                                <asp:Image ID="image" runat="server" Width="40" Height="40" ImageUrl='<%# Eval("Image") %>' />
+                                <asp:Image ID="image" runat="server" Width="40" Height="40" ImageUrl='<%# Eval("image") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="code" HeaderText="Mã" />
                         <asp:BoundField DataField="name" HeaderText="Tên" />
                         <asp:TemplateField HeaderText="Loại">
                             <ItemTemplate>
-                                <%# Eval("Category.Name") %>
+                                <%# Eval("Category.name") %>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="brand" HeaderText="Thương hiệu" />
@@ -82,21 +80,12 @@
                 </asp:GridView>
             </div>
         </div>
-        <div class="row ml-2 mr-2 mt-2 d-flex align-items-center">
-            <div class="col-9">
+        <div class="row ml-2 mt-2">
+            <div class="col-12">
                 <div class="small font-italic">
                     Tổng
-                    <asp:Label ID="numberOfRecordLabel" runat="server"></asp:Label>
+                    <asp:Label ID="totalOfRecordsLabel" runat="server"></asp:Label>
                     bản ghi</div>
-            </div>
-            <div class="col-3">
-                <div class="input-group shadow">
-                    <span class="input-group-text">Trang</span>
-                    <asp:TextBox ID="currentPageTextBox" class="form-control text-center" runat="server"></asp:TextBox>
-                    <span class="input-group-text">/
-                        <asp:Label ID="numberOfPagesLabel" runat="server"></asp:Label>
-                    </span>
-                </div>
             </div>
         </div>
     </div>

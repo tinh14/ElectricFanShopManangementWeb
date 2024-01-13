@@ -6,31 +6,32 @@ using QuanLyShopBanQuatDien.Entities;
 
 namespace QuanLyShopBanQuatDien.Entities
 {
+    [Serializable]
     public class ProductEntity
     {
-        public long Id { get; set; }
+        public string code { get; set; }
 
-        public string Code { get; set; }
+        public string name { get; set; }
 
-        public string Name { get; set; }
+        public string power { get; set; }
 
-        public int Power { get; set; }
+        public string brand { get; set; }
 
-        public string Brand { get; set; }
+        public string size { get; set; }
 
-        public double Size { get; set; }
+        public string material { get; set; }
 
-        public string Material { get; set; }
+        public string color { get; set; }
 
-        public string Color { get; set; }
+        public string speed { get; set; }
 
-        public int Speed { get; set; }
+        public string image { get; set; }
 
-        public string Image { get; set; }
+        public CategoryEntity category { get; set; }
 
-        public bool Status { get; set; }
-
-        // Assuming Category is another entity or a simple type
-        public CategoryEntity Category { get; set; }
+        public ProductEntity()
+        {
+            category = new CategoryEntity();
+        }
     }
 }

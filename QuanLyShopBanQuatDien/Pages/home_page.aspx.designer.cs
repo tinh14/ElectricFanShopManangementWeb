@@ -10,7 +10,7 @@
 namespace QuanLyShopBanQuatDien.Pages {
     
     
-    public partial class home {
+    public partial class home_page {
         
         /// <summary>
         /// LinkButton1 control.

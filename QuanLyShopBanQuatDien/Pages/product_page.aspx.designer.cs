@@ -10,7 +10,25 @@
 namespace QuanLyShopBanQuatDien.Pages {
     
     
-    public partial class products {
+    public partial class product_page {
+        
+        /// <summary>
+        /// findProductTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox findProductTextBox;
+        
+        /// <summary>
+        /// findButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton findButton;
         
         /// <summary>
         /// categoryFilterDropdownList control.
@@ -28,16 +46,7 @@ namespace QuanLyShopBanQuatDien.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton addButton;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton Button1;
+        protected global::System.Web.UI.WebControls.LinkButton addButton;
         
         /// <summary>
         /// productGridView control.
@@ -49,30 +58,12 @@ namespace QuanLyShopBanQuatDien.Pages {
         protected global::System.Web.UI.WebControls.GridView productGridView;
         
         /// <summary>
-        /// numberOfRecordLabel control.
+        /// totalOfRecordsLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label numberOfRecordLabel;
-        
-        /// <summary>
-        /// currentPageTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox currentPageTextBox;
-        
-        /// <summary>
-        /// numberOfPagesLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label numberOfPagesLabel;
+        protected global::System.Web.UI.WebControls.Label totalOfRecordsLabel;
     }
 }

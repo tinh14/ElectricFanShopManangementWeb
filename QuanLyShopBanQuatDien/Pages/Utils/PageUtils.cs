@@ -9,5 +9,29 @@ namespace QuanLyShopBanQuatDien.Pages.Utils
 {
     public class PageUtils
     {
+
+        public static void updateTotalOfRecords(Label totalRecordsLabel, int totalRecords)
+        {
+            totalRecordsLabel.Text = totalRecords.ToString();
+        }
+
+        public static void bindData(DataBoundControl control, object obj)
+        {
+            control.DataSource = obj;
+            control.DataBind();
+        }
+
+        public static void showMessage(Label label, string message, bool isSuccess = false)
+        {
+            label.Text = message;
+            
+            if (isSuccess)
+            {
+                label.CssClass = "text-success";
+                return;
+            }
+
+            label.CssClass = "text-danger";
+        }
     }
 }

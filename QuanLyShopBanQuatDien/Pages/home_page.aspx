@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Master.Master" AutoEventWireup="true"
-    CodeBehind="home.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/master_page.Master" AutoEventWireup="true"
+    CodeBehind="home_page.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.home_page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titleContentPlaceHolder" runat="server">
     Trang chủ
