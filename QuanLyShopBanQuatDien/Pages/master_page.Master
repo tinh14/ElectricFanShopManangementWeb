@@ -20,8 +20,7 @@
     <div id="app" class="container-fluid d-flex">
         <div id="sidebar" class=" bg-light py-0 px-2 flex-column justify-content-center font-weight-bold overflow-auto border">
             <div class="d-flex mt-2 mb-2 align-items-center border-bottom pb-2">
-                <asp:ImageButton ID="userAvatarImageButton" class="rounded-circle" ImageUrl="img.jpg"
-                    Width="50" Height="50" runat="server" />
+                <asp:Image ID="userAvatarImage" class="rounded-circle" Width="50" Height="50" runat="server" />
                 <div class="d-flex flex-column ml-2">
                     <asp:Label ID="fullNameLabel" runat="server" Text="Tinh Lam"></asp:Label>
                     <asp:Label ID="usernameLabel" runat="server" class="small" Text="admin"></asp:Label>
@@ -88,8 +87,7 @@
                     <span class="font-weight-bold">Nhật ký thao tác</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
-                ID="signoutLinkButton" runat="server" 
-                onclick="signoutLinkButton_Click">
+                ID="signoutLinkButton" runat="server" OnClick="signoutLinkButton_Click">
                     <i class="fa fa-sign-out mr-2"></i>
                     <span class="font-weight-bold">Đăng xuất</span>
             </asp:LinkButton>

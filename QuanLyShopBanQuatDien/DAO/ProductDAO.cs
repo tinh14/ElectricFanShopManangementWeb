@@ -49,7 +49,7 @@ namespace QuanLyShopBanQuatDien.DAO
         public static bool checkExist(string code)
         {
             string sql = "select * from product "
-                       + "where productCode like @code";
+                       + "where productCode = @code";
 
             SqlParameter[] parameters = new SqlParameter[] {
                 new SqlParameter("@code", code)

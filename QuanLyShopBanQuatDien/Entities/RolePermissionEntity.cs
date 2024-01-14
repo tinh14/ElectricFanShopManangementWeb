@@ -5,6 +5,7 @@ using System.Web;
 
 namespace QuanLyShopBanQuatDien.Entities
 {
+    [Serializable]
     public class RolePermissionEntity
     {
         public RoleEntity role { get; set; }

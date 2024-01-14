@@ -13,56 +13,19 @@ namespace QuanLyShopBanQuatDien.Pages
     public partial class product_info : System.Web.UI.Page
     {
 
-        private PageStatusManager pageStatusManager
-        {
-            get
-            {
-                if (ViewState["pageStatusManager"] == null)
-                {
-                    ViewState["pageStatusManager"] = new PageStatusManager();
-                }
-                return (PageStatusManager)ViewState["pageStatusManager"];
-            }
-            set
-            {
-                ViewState["pageStatusManager"] = value;
-            }
-        }
-
-        private ProductEntity product
-        {
-            get
-            {
-                if (ViewState["product"] == null)
-                {
-                    ViewState["product"] = new ProductEntity();
-                }
-                return (ProductEntity)ViewState["product"];
-            }
-            set
-            {
-                ViewState["product"] = value;
-            }
-        }
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
             SecurityManager.authenticate(this);
 
-            if (!string.IsNullOrEmpty(Request.QueryString["code"]))
-            {
-                string code = Request.QueryString["code"];
-                pageStatusManager.SetUpdateMode(code);
-            }
-
             SecurityManager.Permission permission = SecurityManager.Permission.CREATE_PRODUCT;
 
-            if (pageStatusManager.mode == PageStatusManager.PageMode.Update)
+            if (PageStatusManager.isUpdate(this))
             {
                 permission = SecurityManager.Permission.UPDATE_PRODUCT;
             }
 
-            SecurityManager.authenticateAndAuthorize(this, permission);
+            SecurityManager.authorize(this, permission);
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -85,7 +48,7 @@ namespace QuanLyShopBanQuatDien.Pages
             PageUtils.bindData(categoryDropDownList, categories);
             
             // Check page status and handle page
-            if (pageStatusManager.mode == PageStatusManager.PageMode.Create)
+            if (!PageStatusManager.isUpdate(this))
             {
                 return;
             }
@@ -94,7 +57,7 @@ namespace QuanLyShopBanQuatDien.Pages
             pageNameLabel.Text = "Sửa sản phẩm";
             deleteLinkButton.Visible = true;
             codeTextBox.Attributes["readonly "] = "readonly";
-            product = ProductService.findByCode(pageStatusManager.itemCode);
+            ProductEntity product = ProductService.findByCode(PageStatusManager.item(this));
             
             if (DataUtils.isNull(product))
             {
@@ -118,7 +81,7 @@ namespace QuanLyShopBanQuatDien.Pages
         {
             string code = codeTextBox.Text;
 
-            if (pageStatusManager.mode == PageStatusManager.PageMode.Create)
+            if (!PageStatusManager.isUpdate(this))
             {
                 if (string.IsNullOrWhiteSpace(code))
                 {
@@ -330,7 +293,7 @@ namespace QuanLyShopBanQuatDien.Pages
             product.image = imageImage.ImageUrl;
             product.category.code = categoryDropDownList.SelectedValue;
 
-            if (pageStatusManager.mode == PageStatusManager.PageMode.Create)
+            if (!PageStatusManager.isUpdate(this))
             {
                 if (!ProductService.create(product))
                 {
@@ -352,7 +315,9 @@ namespace QuanLyShopBanQuatDien.Pages
 
         protected void deleteLinkButton_Click(object sender, EventArgs e)
         {
-            string code = pageStatusManager.itemCode;
+            SecurityManager.authorize(this, SecurityManager.Permission.DELETE_PRODUCT);
+
+            string code = PageStatusManager.item(this);
             if (!ProductService.delete(code))
             {
                 PageUtils.showMessage(messageLabel, "Mã sản phẩm không tồn tại");

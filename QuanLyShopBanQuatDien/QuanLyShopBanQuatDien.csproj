@@ -55,13 +55,20 @@
       <DependentUpon>QuanLyShopBanQuatDien.mdf</DependentUpon>
     </Content>
     <Content Include="Pages\access_denied.aspx" />
-    <Content Include="Pages\img.jpg" />
+    <Content Include="Pages\category_info.aspx" />
+    <Content Include="Pages\category_page.aspx" />
+    <Content Include="Pages\customer_info.aspx" />
+    <Content Include="Pages\customer_page.aspx" />
     <Content Include="Pages\home_page.aspx" />
     <Content Include="Pages\product_info.aspx" />
     <Content Include="Pages\product_page.aspx" />
     <Content Include="Pages\signin_page.aspx" />
+    <Content Include="Pages\supplier_info.aspx" />
+    <Content Include="Pages\supplier_page.aspx" />
+    <Content Include="Pages\user_page.aspx" />
     <Content Include="Resources\Custom\Css\main.css" />
-    <Content Include="Resources\Custom\Js\table-datasource-config.js" />
+    <Content Include="Resources\Custom\Js\table-datasource-common-config.js" />
+    <Content Include="Resources\Custom\Js\table-datasource-product-config.js" />
     <Content Include="Resources\Custom\Js\main.js" />
     <Content Include="Resources\Libs\bootstrap-4.5.3\css\bootstrap-grid.css" />
     <Content Include="Resources\Libs\bootstrap-4.5.3\css\bootstrap-grid.min.css" />
@@ -92,20 +99,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\CategoryDAO.cs" />
+    <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\RoleDAO.cs" />
     <Compile Include="DAO\RolePermissionDAO.cs" />
+    <Compile Include="DAO\SupplierDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="Database\DatabaseConnectionProvider.cs" />
     <Compile Include="Database\DatabaseQueryExecutor.cs" />
     <Compile Include="Entities\CategoryEntity.cs" />
+    <Compile Include="Entities\CustomerEntity.cs" />
     <Compile Include="Entities\PermissionEntity.cs" />
     <Compile Include="Entities\ProductEntity.cs" />
     <Compile Include="Entities\RoleEntity.cs" />
     <Compile Include="Entities\RolePermissionEntity.cs" />
+    <Compile Include="Entities\SupplierEntity.cs" />
     <Compile Include="Entities\UserEntity.cs" />
     <Compile Include="Mappers\CategoryMapper.cs" />
+    <Compile Include="Mappers\CustomerMapper.cs" />
     <Compile Include="Mappers\ProductMapper.cs" />
+    <Compile Include="Mappers\RoleMapper.cs" />
     <Compile Include="Mappers\RowMapper.cs" />
+    <Compile Include="Mappers\SupplierMapper.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Pages\access_denied.aspx.cs">
       <DependentUpon>access_denied.aspx</DependentUpon>
@@ -113,6 +128,34 @@
     </Compile>
     <Compile Include="Pages\access_denied.aspx.designer.cs">
       <DependentUpon>access_denied.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\category_info.aspx.cs">
+      <DependentUpon>category_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\category_info.aspx.designer.cs">
+      <DependentUpon>category_info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\category_page.aspx.cs">
+      <DependentUpon>category_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\category_page.aspx.designer.cs">
+      <DependentUpon>category_page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\customer_info.aspx.cs">
+      <DependentUpon>customer_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\customer_info.aspx.designer.cs">
+      <DependentUpon>customer_info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\customer_page.aspx.cs">
+      <DependentUpon>customer_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\customer_page.aspx.designer.cs">
+      <DependentUpon>customer_page.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\home_page.aspx.cs">
       <DependentUpon>home_page.aspx</DependentUpon>
@@ -149,15 +192,40 @@
     <Compile Include="Pages\signin_page.aspx.designer.cs">
       <DependentUpon>signin_page.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\supplier_info.aspx.cs">
+      <DependentUpon>supplier_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\supplier_info.aspx.designer.cs">
+      <DependentUpon>supplier_info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\supplier_page.aspx.cs">
+      <DependentUpon>supplier_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\supplier_page.aspx.designer.cs">
+      <DependentUpon>supplier_page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\user_page.aspx.cs">
+      <DependentUpon>user_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\user_page.aspx.designer.cs">
+      <DependentUpon>user_page.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Utils\DataUtils.cs" />
     <Compile Include="Pages\Utils\PageStatusManager.cs" />
     <Compile Include="Pages\Utils\PageUtils.cs" />
     <Compile Include="Pages\Utils\SecurityManager.cs" />
     <Compile Include="Pages\Utils\UserSessionManager.cs" />
+    <Compile Include="Pages\Utils\ViewStateManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CategoryService.cs" />
+    <Compile Include="Service\CustomerService.cs" />
     <Compile Include="Service\ProductService.cs" />
     <Compile Include="Service\RolePermissionService.cs" />
+    <Compile Include="Service\RoleService.cs" />
+    <Compile Include="Service\SupplierService.cs" />
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

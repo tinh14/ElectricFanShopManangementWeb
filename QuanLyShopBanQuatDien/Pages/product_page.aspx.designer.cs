@@ -13,13 +13,13 @@ namespace QuanLyShopBanQuatDien.Pages {
     public partial class product_page {
         
         /// <summary>
-        /// findProductTextBox control.
+        /// findTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox findProductTextBox;
+        protected global::System.Web.UI.WebControls.TextBox findTextBox;
         
         /// <summary>
         /// findButton control.
@@ -49,13 +49,13 @@ namespace QuanLyShopBanQuatDien.Pages {
         protected global::System.Web.UI.WebControls.LinkButton addButton;
         
         /// <summary>
-        /// productGridView control.
+        /// gridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView productGridView;
+        protected global::System.Web.UI.WebControls.GridView gridView;
         
         /// <summary>
         /// totalOfRecordsLabel control.

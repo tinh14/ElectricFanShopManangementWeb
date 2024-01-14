@@ -14,6 +14,10 @@ namespace QuanLyShopBanQuatDien.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            UserEntity user = UserSessionManager.currentUser;
+            fullNameLabel.Text = user.fullName;
+            usernameLabel.Text = user.username;
+            userAvatarImage.ImageUrl = user.avatar;
         }
 
         protected void signoutLinkButton_Click(object sender, EventArgs e)

@@ -11,9 +11,11 @@ namespace QuanLyShopBanQuatDien.Pages.Utils
     {
         public enum Permission
         {
-            VIEW_PRODUCT, VIEW_CATEGORY, VIEW_ORDER,
-            CREATE_PRODUCT,
-            UPDATE_PRODUCT
+            VIEW_PRODUCT, CREATE_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT,
+            VIEW_CATEGORY, CREATE_CATEGORY, UPDATE_CATEGORY, DELETE_CATEGORY,
+            VIEW_CUSTOMER, CREATE_CUSTOMER, UPDATE_CUSTOMER, DELETE_CUSTOMER,
+            VIEW_SUPPLIER, CREATE_SUPPLIER, UPDATE_SUPPLIER, DELETE_SUPPLIER,
+            VIEW_USER, CREATE_USER, UPDATE_USER, DELETE_USER
         }
 
         public static void authenticate(System.Web.UI.Page page)

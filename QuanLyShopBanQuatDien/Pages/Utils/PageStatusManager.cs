@@ -2,33 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 
 namespace QuanLyShopBanQuatDien.Pages.Utils
 {
-    [Serializable]
     public class PageStatusManager
     {
+        private static string KEY = "code";
 
-        public enum PageMode
+        public static bool isUpdate(Page page)
         {
-            Create,
-            Update
+            return !string.IsNullOrEmpty(page.Request.QueryString[KEY]);
         }
 
-        public PageMode mode { get; private set; }
-        public string itemCode { get; private set; }
-
-        public PageStatusManager()
-        {
-            // default
-            mode = PageMode.Create;
+        public static string item(Page page) {
+            return page.Request.QueryString[KEY];
         }
 
-        public void SetUpdateMode(string itemCode)
-        {
-            this.mode = PageMode.Update;
-            this.itemCode = itemCode;
-        }
 
     }
 }

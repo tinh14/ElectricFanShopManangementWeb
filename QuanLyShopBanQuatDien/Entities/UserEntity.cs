@@ -16,7 +16,7 @@ namespace QuanLyShopBanQuatDien.Entities
 
         public string avatar { get; set; }
 
-        public RoleEntity role;
+        public RoleEntity role { get; set; }
 
         public UserEntity()
         {

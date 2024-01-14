@@ -16,7 +16,7 @@
             <div class="flex-grow-1 row">
                 <div class="col-5">
                     <div class="input-group rounded shadow">
-                        <asp:TextBox ID="findProductTextBox" class="form-control" placeholder="Tìm sản phẩm..."
+                        <asp:TextBox ID="findTextBox" class="form-control" placeholder="Tìm sản phẩm..."
                             runat="server"></asp:TextBox>
                         <div class="input-group-append">
                             <asp:LinkButton ID="findButton" class="btn btn-outline-primary" runat="server" OnClick="findButton_Click">
@@ -46,13 +46,16 @@
         </div>
         <div class="row px-4">
             <div class="col-12">
-                <asp:GridView ID="productGridView" class="bg-white rounded shadow table table-hover table-responsive table-bordered text-center overflow-auto"
-                    runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true" EmptyDataText="Không có sản phẩm" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
-                    OnRowDataBound="productGridView_RowDataBound" OnRowCommand="productGridView_RowCommand">
+
+                <asp:GridView ID="gridView" class="bg-white rounded shadow table table-hover table-responsive table-bordered text-center overflow-auto"
+                    runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" 
+                    ShowHeaderWhenEmpty="true" EmptyDataText="Không có sản phẩm" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
+                    OnRowDataBound="gridView_RowDataBound" 
+                    onrowcommand="gridView_RowCommand">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton class="btn btn-outline-primary" runat="server" CommandName="Select"
+                                <asp:LinkButton class="btn btn-primary" runat="server" CommandName="Select"
                                     CommandArgument='<%# Container.DataItemIndex %>'>
                                     <i class="fa fa-edit"></i>
                                 </asp:LinkButton>
@@ -93,5 +96,5 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
-    <script type="text/javascript" src="../Resources/Custom/Js/table-datasource-config.js"></script>
+    <script type="text/javascript" src="../Resources/Custom/Js/table-datasource-product-config.js"></script>
 </asp:Content>

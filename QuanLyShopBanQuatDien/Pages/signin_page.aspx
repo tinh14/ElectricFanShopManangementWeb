@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
     <div id="app" class="container-fluid overflow-hidden bg-light">
         <div class="row d-flex align-items-center justify-content-center h-100">
-            <div class="col-5 bg-warning bg-white shadow px-4 pb-2">
+            <div class="col-4 bg-warning bg-white shadow px-4 pb-2">
                 <div class="form-group text-center mt-5 mb-4">
                     <div class="h2">Đăng nhập</div>
                 </div>

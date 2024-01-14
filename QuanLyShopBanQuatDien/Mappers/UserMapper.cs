@@ -17,6 +17,7 @@ namespace QuanLyShopBanQuatDien.Mappers
             user.fullName = reader.GetString(reader.GetOrdinal("fullName"));
             user.avatar = reader.GetString(reader.GetOrdinal("avatar"));
             user.role.code = reader.GetString(reader.GetOrdinal("roleCode"));
+            user.role.name = reader.GetString(reader.GetOrdinal("roleName"));
 
             return user;
         }
