@@ -65,6 +65,7 @@
     <Content Include="Pages\signin_page.aspx" />
     <Content Include="Pages\supplier_info.aspx" />
     <Content Include="Pages\supplier_page.aspx" />
+    <Content Include="Pages\user_info.aspx" />
     <Content Include="Pages\user_page.aspx" />
     <Content Include="Resources\Custom\Css\main.css" />
     <Content Include="Resources\Custom\Js\table-datasource-common-config.js" />
@@ -107,6 +108,7 @@
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="Database\DatabaseConnectionProvider.cs" />
     <Compile Include="Database\DatabaseQueryExecutor.cs" />
+    <Compile Include="DTO\ResponseObject.cs" />
     <Compile Include="Entities\CategoryEntity.cs" />
     <Compile Include="Entities\CustomerEntity.cs" />
     <Compile Include="Entities\PermissionEntity.cs" />
@@ -206,6 +208,13 @@
     <Compile Include="Pages\supplier_page.aspx.designer.cs">
       <DependentUpon>supplier_page.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\user_info.aspx.cs">
+      <DependentUpon>user_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\user_info.aspx.designer.cs">
+      <DependentUpon>user_info.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\user_page.aspx.cs">
       <DependentUpon>user_page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,6 +232,7 @@
     <Compile Include="Service\CategoryService.cs" />
     <Compile Include="Service\CustomerService.cs" />
     <Compile Include="Service\ProductService.cs" />
+    <Compile Include="Service\ResponseObject.cs" />
     <Compile Include="Service\RolePermissionService.cs" />
     <Compile Include="Service\RoleService.cs" />
     <Compile Include="Service\SupplierService.cs" />
