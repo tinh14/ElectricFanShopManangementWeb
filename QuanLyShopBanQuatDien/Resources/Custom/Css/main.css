@@ -1,5 +1,10 @@
-﻿
-.btn
+﻿.container-fluid
+{
+    padding: 0;
+    margin: 0;
+}
+
+.btn, input, select, label, table
 {
     font-size: 14px !important;
 }
@@ -9,32 +14,30 @@
     background: #fff;
 }
 
-.container-fluid
+#app
 {
-    padding: 0;
-    margin: 0;
-}
-
-#app 
-{
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
 }
 
-#sidebar
+#sidebar, #main
 {
     height: 100%;
+}
+
+#sidebar 
+{
     width: 18%;
 }
 
 #main
 {
-    height: 100%;
     width: 82%;
 }
 
 table
 {
+    max-height: 70vh;
     width: 100%;
 }
 
@@ -46,22 +49,8 @@ td, th
     white-space: nowrap;
 }
 
-tbody tr:hover
+#main #header
 {
-    cursor: pointer;
-}
-
-#main #header 
-{
-    height: 8vh;
-}
-
-table 
-{
-    height: 70vh;
-}
-
-#main #body 
-{
-    height: 92vh;
+    min-height: 8vh;
+    max-height: 8vh;
 }

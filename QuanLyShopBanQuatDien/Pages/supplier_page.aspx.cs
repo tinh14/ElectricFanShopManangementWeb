@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyShopBanQuatDien.Pages.Utils;
-using QuanLyShopBanQuatDien.Entities;
+using QuanLyShopBanQuatDien.Pages;
 using QuanLyShopBanQuatDien.Service;
 
 namespace QuanLyShopBanQuatDien.Pages

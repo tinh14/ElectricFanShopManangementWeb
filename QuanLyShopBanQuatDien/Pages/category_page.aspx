@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/master_page.Master" AutoEventWireup="true"
-    CodeBehind="category_page.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.category_page"%>
+    CodeBehind="category_page.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.category_page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titleContentPlaceHolder" runat="server">
-    Loại  phẩm
+    Loại sản phẩm
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="headContentPlaceHolder" runat="server">
 </asp:Content>
@@ -33,13 +33,12 @@
                 </asp:LinkButton>
             </div>
         </div>
-        <div class="row px-4">
+        <div class="row px-4 ">
             <div class="col-12">
-                <asp:GridView ID="gridView" class="bg-white rounded shadow table table-hover table-responsive table-bordered text-center overflow-auto"
-                    runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" 
-                    ShowHeaderWhenEmpty="true" EmptyDataText="Không có sản phẩm" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
-                    OnRowDataBound="gridView_RowDataBound" 
-                    onrowcommand="gridView_RowCommand">
+                <asp:GridView ID="gridView" class="bg-white rounded shadow table table-hover table-bordered text-center"
+                    runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true"
+                    EmptyDataText="Không có dữ liệu" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
+                    OnRowDataBound="gridView_RowDataBound" OnRowCommand="gridView_RowCommand">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>

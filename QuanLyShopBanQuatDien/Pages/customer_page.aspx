@@ -33,7 +33,7 @@
         </div>
         <div class="row px-4">
             <div class="col-12">
-                <asp:GridView ID="gridView" class="bg-white rounded shadow table table-hover table-responsive table-bordered text-center overflow-auto"
+                <asp:GridView ID="gridView" class="bg-white rounded shadow table table-hover   table-bordered text-center overflow-auto"
                     runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" 
                     ShowHeaderWhenEmpty="true" EmptyDataText="Không có dữ liệu" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
                     OnRowDataBound="gridView_RowDataBound" 

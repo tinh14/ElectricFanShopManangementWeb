@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuanLyShopBanQuatDien.Pages.Utils;
 using QuanLyShopBanQuatDien.Service;
-using QuanLyShopBanQuatDien.Entities;
+using QuanLyShopBanQuatDien.Pages;
 using QuanLyShopBanQuatDien.DTO;
 
 namespace QuanLyShopBanQuatDien.Pages
@@ -41,38 +41,43 @@ namespace QuanLyShopBanQuatDien.Pages
                 return;
             }
 
-            // Roles
             List<RoleEntity> roles = RoleService.findAll();
-
             PageUtils.bindData(roleDropdownList, roles);
 
             // Check page status and handle page
-            if (!PageStatusManager.isUpdate(this))
+            if (PageStatusManager.isUpdate(this))
             {
-                return;
+                updatePageConfig();
             }
+        }
 
-            // Updation status
+        private void updatePageConfig()
+        {
             pageNameLabel.Text = "Sửa người dùng";
             deleteLinkButton.Visible = true;
             usernameTextBox.Attributes["readonly "] = "readonly";
-            UserEntity user = UserService.findByUsername(PageStatusManager.item(this));
-            if (user.role.code == "ADMIN")
-            {
-                roleDropdownList.Attributes["disabled"] = "false";
-            }
 
+            // get user info from passed username parameter
+            UserEntity user = UserService.findByUsername(PageStatusManager.item(this));
+
+            // if cannot find user info then redirect back to user_page
             if (DataUtils.isNull(user))
             {
-                return;
+                Response.Redirect("~/Pages/user_page.aspx");
             }
 
+            if (user.role.code == "ADMIN")
+            {
+                roleDropdownList.Attributes["disabled"] = "disabled";
+            }
+
+            // If can find user info then render it to the control
             usernameTextBox.Text = user.username;
             fullNameTextBox.Text = user.fullName;
             avatarImage.ImageUrl = user.avatar;
             roleDropdownList.SelectedValue = user.role.code;
         }
-
+        
         protected void usernameValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             string username = usernameTextBox.Text;
@@ -147,25 +152,28 @@ namespace QuanLyShopBanQuatDien.Pages
         {
             string roleCode = roleDropdownList.SelectedValue;
 
-            if (string.IsNullOrEmpty(roleCode))
+            if (!string.IsNullOrEmpty(roleCode))
             {
-                args.IsValid = false;
-                roleValidator.ErrorMessage = "Vai trò không được rỗng";
+                args.IsValid = true;
                 return;
+                
             }
 
-            args.IsValid = true;
+            args.IsValid = false;
+            roleValidator.ErrorMessage = "Vai trò không được rỗng";
         }
 
 
         protected void avatarValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (avatarImage.ImageUrl == "")
+            if (avatarImage.ImageUrl != "")
             {
-                args.IsValid = false;
-                avatarValidator.ErrorMessage = "Hình ảnh không hợp lệ";
+                args.IsValid = true;
                 return;
             }
+
+            args.IsValid = false;
+            avatarValidator.ErrorMessage = "Hình ảnh không hợp lệ";
         }
 
         protected void saveLinkButton_Click(object sender, EventArgs e)
@@ -184,22 +192,21 @@ namespace QuanLyShopBanQuatDien.Pages
             user.avatar = avatarImage.ImageUrl;
             user.role.code = roleDropdownList.SelectedValue;
 
-            if (!PageStatusManager.isUpdate(this))
+            ResponseObject<UserEntity> res = null;
+
+            if (PageStatusManager.isUpdate(this))
             {
-                if (!UserService.create(user))
-                {
-                    PageUtils.showMessage(messageLabel, "Tên đăng nhập đã tồn tại");
-                    return;
-                }
+                res = UserService.update(user);
             }
             else
             {
-                ResponseObject<UserEntity> res = UserService.update(user);
-                if (!res.isSuccess)
-                {
-                    PageUtils.showMessage(messageLabel, res.errorMessage);
-                    return;
-                }
+                res = UserService.create(user);
+            }
+
+            if (!res.isSuccess)
+            {
+                PageUtils.showMessage(messageLabel, res.errorMessage);
+                return;
             }
 
             PageUtils.showMessage(messageLabel, "Lưu thành công", true);
@@ -210,9 +217,11 @@ namespace QuanLyShopBanQuatDien.Pages
             SecurityManager.authorize(this, SecurityManager.Permission.DELETE_USER);
 
             string code = PageStatusManager.item(this);
-            if (!UserService.delete(code))
+            ResponseObject<UserEntity> res = UserService.delete(code);
+
+            if (!res.isSuccess)
             {
-                PageUtils.showMessage(messageLabel, "Tên đăng nhập không tồn tại");
+                PageUtils.showMessage(messageLabel, res.errorMessage);
                 return;
             }
 

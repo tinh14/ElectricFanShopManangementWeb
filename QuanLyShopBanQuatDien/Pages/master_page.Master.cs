@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using QuanLyShopBanQuatDien.Entities;
+using QuanLyShopBanQuatDien.Pages;
 using QuanLyShopBanQuatDien.Pages.Utils;
 
 namespace QuanLyShopBanQuatDien.Pages
@@ -14,6 +14,8 @@ namespace QuanLyShopBanQuatDien.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            SecurityManager.authenticate(this);
+
             UserEntity user = UserSessionManager.currentUser;
             fullNameLabel.Text = user.fullName;
             usernameLabel.Text = user.username;

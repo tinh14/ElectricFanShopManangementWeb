@@ -20,9 +20,9 @@
     <div id="app" class="container-fluid d-flex">
         <div id="sidebar" class=" bg-light py-0 px-2 flex-column justify-content-center font-weight-bold overflow-auto border">
             <div class="d-flex mt-2 mb-2 align-items-center border-bottom pb-2">
-                <asp:Image ID="userAvatarImage" class="rounded-circle" Width="50" Height="50" runat="server" />
+                <asp:Image ID="userAvatarImage" class="rounded-circle img-thumbnail" Width="50" Height="50" runat="server" />
                 <div class="d-flex flex-column ml-2">
-                    <asp:Label ID="fullNameLabel" runat="server" Text="Tinh Lam"></asp:Label>
+                    <asp:Label ID="fullNameLabel" runat="server"></asp:Label>
                     <asp:Label ID="usernameLabel" runat="server" class="small" Text="admin"></asp:Label>
                 </div>
             </div>

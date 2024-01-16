@@ -46,41 +46,41 @@
         </div>
         <div class="row px-4">
             <div class="col-12">
-
-                <asp:GridView ID="gridView" class="bg-white rounded shadow table table-hover table-responsive table-bordered text-center overflow-auto"
-                    runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" 
-                    ShowHeaderWhenEmpty="true" EmptyDataText="Không có sản phẩm" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
-                    OnRowDataBound="gridView_RowDataBound" 
-                    onrowcommand="gridView_RowCommand">
-                    <Columns>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:LinkButton class="btn btn-primary" runat="server" CommandName="Select"
-                                    CommandArgument='<%# Container.DataItemIndex %>'>
+                <div class="table-responsive">
+                    <asp:GridView ID="gridView" class="bg-white rounded shadow table table-hover table-bordered text-center"
+                        runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true"
+                        EmptyDataText="Không có sản phẩm" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
+                        OnRowDataBound="gridView_RowDataBound" OnRowCommand="gridView_RowCommand">
+                        <Columns>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton1" class="btn btn-primary" runat="server" CommandName="Select"
+                                        CommandArgument='<%# Container.DataItemIndex %>'>
                                     <i class="fa fa-edit"></i>
-                                </asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Ảnh">
-                            <ItemTemplate>
-                                <asp:Image ID="image" runat="server" Width="40" Height="40" ImageUrl='<%# Eval("image") %>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:BoundField DataField="code" HeaderText="Mã" />
-                        <asp:BoundField DataField="name" HeaderText="Tên" />
-                        <asp:TemplateField HeaderText="Loại">
-                            <ItemTemplate>
-                                <%# Eval("Category.name") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:BoundField DataField="brand" HeaderText="Thương hiệu" />
-                        <asp:BoundField DataField="power" HeaderText="Công suất" />
-                        <asp:BoundField DataField="size" HeaderText="Kích thước" />
-                        <asp:BoundField DataField="material" HeaderText="Chất liệu" />
-                        <asp:BoundField DataField="color" HeaderText="Màu sắc" />
-                        <asp:BoundField DataField="speed" HeaderText="Tốc độ gió" />
-                    </Columns>
-                </asp:GridView>
+                                    </asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Ảnh">
+                                <ItemTemplate>
+                                    <asp:Image ID="image" runat="server" Width="40" Height="40" ImageUrl='<%# Eval("image") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="code" HeaderText="Mã" />
+                            <asp:BoundField DataField="name" HeaderText="Tên" />
+                            <asp:TemplateField HeaderText="Loại">
+                                <ItemTemplate>
+                                    <%# Eval("Category.name") %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="brand" HeaderText="Thương hiệu" />
+                            <asp:BoundField DataField="power" HeaderText="Công suất" />
+                            <asp:BoundField DataField="size" HeaderText="Kích thước" />
+                            <asp:BoundField DataField="material" HeaderText="Chất liệu" />
+                            <asp:BoundField DataField="color" HeaderText="Màu sắc" />
+                            <asp:BoundField DataField="speed" HeaderText="Tốc độ gió" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
             </div>
         </div>
         <div class="row ml-2 mt-2">

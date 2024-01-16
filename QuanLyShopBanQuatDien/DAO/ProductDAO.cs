@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using QuanLyShopBanQuatDien.Entities;
+using QuanLyShopBanQuatDien.Pages;
 using System.Data.SqlClient;
 using QuanLyShopBanQuatDien.Database;
 using QuanLyShopBanQuatDien.Mappers;

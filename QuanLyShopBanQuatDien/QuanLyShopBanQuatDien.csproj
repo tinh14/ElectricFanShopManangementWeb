@@ -60,8 +60,12 @@
     <Content Include="Pages\customer_info.aspx" />
     <Content Include="Pages\customer_page.aspx" />
     <Content Include="Pages\home_page.aspx" />
+    <Content Include="Pages\order_info.aspx" />
+    <Content Include="Pages\order_page.aspx" />
     <Content Include="Pages\product_info.aspx" />
     <Content Include="Pages\product_page.aspx" />
+    <Content Include="Pages\role_info.aspx" />
+    <Content Include="Pages\role_page.aspx" />
     <Content Include="Pages\signin_page.aspx" />
     <Content Include="Pages\supplier_info.aspx" />
     <Content Include="Pages\supplier_page.aspx" />
@@ -90,6 +94,8 @@
     <Content Include="Resources\Libs\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Resources\Libs\jquery-3.7.1\jquery-3.7.1.min.js" />
     <Content Include="Resources\Libs\data-tables\jquery.dataTables.min.js" />
+    <Content Include="Resources\Libs\jquery-ui\jquery-ui.js" />
+    <Content Include="Resources\Libs\jquery-ui\jquery-ui.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -101,6 +107,9 @@
   <ItemGroup>
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
+    <Compile Include="DAO\OrderDAO.cs" />
+    <Compile Include="DAO\OrderDetailDAO.cs" />
+    <Compile Include="DAO\PermissionDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\RoleDAO.cs" />
     <Compile Include="DAO\RolePermissionDAO.cs" />
@@ -111,6 +120,7 @@
     <Compile Include="DTO\ResponseObject.cs" />
     <Compile Include="Entities\CategoryEntity.cs" />
     <Compile Include="Entities\CustomerEntity.cs" />
+    <Compile Include="Entities\OrderDetailEntity.cs" />
     <Compile Include="Entities\PermissionEntity.cs" />
     <Compile Include="Entities\ProductEntity.cs" />
     <Compile Include="Entities\RoleEntity.cs" />
@@ -119,8 +129,12 @@
     <Compile Include="Entities\UserEntity.cs" />
     <Compile Include="Mappers\CategoryMapper.cs" />
     <Compile Include="Mappers\CustomerMapper.cs" />
+    <Compile Include="Mappers\OrderDetailMapper.cs" />
+    <Compile Include="Mappers\OrderMapper.cs" />
+    <Compile Include="Mappers\PermissionMapper.cs" />
     <Compile Include="Mappers\ProductMapper.cs" />
     <Compile Include="Mappers\RoleMapper.cs" />
+    <Compile Include="Mappers\RolePermissionMapper.cs" />
     <Compile Include="Mappers\RowMapper.cs" />
     <Compile Include="Mappers\SupplierMapper.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
@@ -173,6 +187,21 @@
     <Compile Include="Pages\master_page.Master.designer.cs">
       <DependentUpon>master_page.Master</DependentUpon>
     </Compile>
+    <Compile Include="Entities\OrderEntity.cs" />
+    <Compile Include="Pages\order_info.aspx.cs">
+      <DependentUpon>order_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\order_info.aspx.designer.cs">
+      <DependentUpon>order_info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\order_page.aspx.cs">
+      <DependentUpon>order_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\order_page.aspx.designer.cs">
+      <DependentUpon>order_page.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\product_info.aspx.cs">
       <DependentUpon>product_info.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -186,6 +215,20 @@
     </Compile>
     <Compile Include="Pages\product_page.aspx.designer.cs">
       <DependentUpon>product_page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\role_info.aspx.cs">
+      <DependentUpon>role_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\role_info.aspx.designer.cs">
+      <DependentUpon>role_info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\role_page.aspx.cs">
+      <DependentUpon>role_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\role_page.aspx.designer.cs">
+      <DependentUpon>role_page.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\signin_page.aspx.cs">
       <DependentUpon>signin_page.aspx</DependentUpon>
@@ -231,6 +274,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CategoryService.cs" />
     <Compile Include="Service\CustomerService.cs" />
+    <Compile Include="Service\OrderService.cs" />
+    <Compile Include="Service\PermissionService.cs" />
     <Compile Include="Service\ProductService.cs" />
     <Compile Include="Service\ResponseObject.cs" />
     <Compile Include="Service\RolePermissionService.cs" />
@@ -296,7 +341,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>18572</DevelopmentServerPort>
+          <DevelopmentServerPort>10093</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
