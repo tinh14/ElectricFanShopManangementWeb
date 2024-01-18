@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
     <div id="header" class="px-4 py-3">
-        <asp:Label ID="pageNameLabel" class="h2" runat="server" Text="Thêm khách hàng"></asp:Label>
+        <asp:Label ID="pageNameLabel" class="h4" runat="server" Text="Thêm khách hàng"></asp:Label>
     </div>
     <div id="body">
         <div class="d-flex justify-content-between ml-4 mt-4">

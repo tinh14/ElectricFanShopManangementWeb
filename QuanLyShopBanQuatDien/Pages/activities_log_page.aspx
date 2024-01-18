@@ -6,30 +6,30 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="headContentPlaceHolder" runat="server">
     <link rel="stylesheet" href="../Resources/Libs/jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/css/tempusdominus-bootstrap-4.min.css">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
     <div id="header" class="bg-light px-4 py-3">
-        <div class="h2">
+        <div class="h4">
             Nhật ký hoạt động</div>
     </div>
     <div id="body" class="bg-light">
         <div class="d-flex justify-content-between pl-4 py-3">
             <div class="flex-grow-1 row">
                 <div class="col-3">
-                    <asp:TextBox ID="startDateTextBox" ClientIDMode="Static" class="form-control" placeholder="Chọn ngày bắt đầu..."
-                        runat="server"></asp:TextBox>
-                    <asp:CustomValidator ID="startDateValidator" runat="server" 
-                        onservervalidate="startDateValidator_ServerValidate" ></asp:CustomValidator>
+                    <asp:TextBox ID="startDateTextBox" ClientIDMode="Static" class="datetimepicker-input form-control"
+                        placeholder="Chọn ngày bắt đầu..." runat="server"></asp:TextBox>
+                    <asp:CustomValidator ID="startDateValidator" class="text-danger small" runat="server"
+                        OnServerValidate="startDateValidator_ServerValidate"></asp:CustomValidator>
                 </div>
                 <div class="col-3">
-                    <asp:TextBox ID="endDateTextBox" ClientIDMode="Static" class="form-control" placeholder="Chọn ngày kết thúc..."
-                        runat="server"></asp:TextBox>
-                    <asp:CustomValidator ID="endDateValidator" class="text-danger small" runat="server" 
-                        onservervalidate="endDateValidator_ServerValidate" ></asp:CustomValidator>
+                    <asp:TextBox ID="endDateTextBox" ClientIDMode="Static" class="datetimepicker-input form-control"
+                        placeholder="Chọn ngày kết thúc..." runat="server"></asp:TextBox>
+                    <asp:CustomValidator ID="endDateValidator" class="text-danger small" runat="server"
+                        OnServerValidate="endDateValidator_ServerValidate"></asp:CustomValidator>
                 </div>
                 <div class="col-2">
-                    <asp:LinkButton ID="findButton" class="btn btn-primary" runat="server" 
-                        onclick="findButton_Click">
+                    <asp:LinkButton ID="findButton" class="btn btn-primary" runat="server" OnClick="findButton_Click">
                         <i class="fa fa-search mr-1"></i><span>Tìm</span>
                     </asp:LinkButton>
                 </div>
@@ -77,12 +77,27 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
     <script type="text/javascript" src="../Resources/Libs/jquery-ui/jquery-ui.js"></script>
     <script type="text/javascript" src="../Resources/Custom/Js/table-datasource-common-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
     <script type="text/javascript">
-        $('#startDateTextBox').datepicker({
-            dateFormat: 'dd/mm/yy'
+        $('#startDateTextBox').datetimepicker({
+            useCurrent: false,
+            format: 'DD/MM/YYYY HH:mm'
         });
-        $('#endDateTextBox').datepicker({
-            dateFormat: 'dd/mm/yy'
+
+        $('#endDateTextBox').datetimepicker({
+            useCurrent: false,
+            format: 'DD/MM/YYYY HH:mm'
         });
+
+        $('#startDateTextBox').on('click', function () {
+            $(this).datetimepicker('show');
+        });
+
+        $('#endDateTextBox').on('click', function () {
+            $(this).datetimepicker('show');
+        });
+
+
     </script>
 </asp:Content>

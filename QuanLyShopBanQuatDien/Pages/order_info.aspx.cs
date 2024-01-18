@@ -43,7 +43,7 @@ namespace QuanLyShopBanQuatDien.Pages
             }
 
             codeTextBox.Text = order.code;
-            orderDateTextBox.Text = TypeConverter.dateToStr(order.orderDate);
+            orderDateTextBox.Text = TypeConverter.dateToStr(order.orderDate, TypeConverter.DateTimeConfig.DATE_PATTERN);
             customerDropDownList.SelectedValue = order.customer.code;
             userTextBox.Text = order.user.username;
             totalAmountTextBox.Text = order.totalAmount.ToString();
@@ -55,7 +55,7 @@ namespace QuanLyShopBanQuatDien.Pages
         public void createPageConfig()
         {
             userTextBox.Text = UserSessionManager.currentUser.username;
-            orderDateTextBox.Text = TypeConverter.dateToStr(DateTime.Now);
+            orderDateTextBox.Text = TypeConverter.dateToStr(DateTime.Now, TypeConverter.DateTimeConfig.DATE_PATTERN);
             List<OrderDetailEntity> orderDetails = new List<OrderDetailEntity>();
             ViewStateManager.state(ViewState, orderDetails);
             PageUtils.bindData(gridView, orderDetails);
@@ -104,7 +104,7 @@ namespace QuanLyShopBanQuatDien.Pages
 
             OrderEntity order = new OrderEntity();
             order.code = codeTextBox.Text;
-            order.orderDate = TypeConverter.strToDate(orderDateTextBox.Text);
+            order.orderDate = TypeConverter.strToDate(orderDateTextBox.Text, TypeConverter.DateTimeConfig.DATE_PATTERN);
             order.customer.code = customerDropDownList.SelectedValue;
             order.user.username = UserSessionManager.currentUser.username;
 
@@ -162,16 +162,16 @@ namespace QuanLyShopBanQuatDien.Pages
         protected void orderDateValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             string orderDateString = orderDateTextBox.Text;
-            
-            if (!TypeConverter.isValidDate(orderDateString))
+
+            if (!TypeConverter.isValidDate(orderDateString, TypeConverter.DateTimeConfig.DATE_PATTERN))
             {
                 args.IsValid = false;
                 orderDateValidator.ErrorMessage = "Ngày lập hóa đơn không hợp lệ";
                 return;
             }
 
-            DateTime orderDate = TypeConverter.strToDate(orderDateString);
-            DateTime currentDate = TypeConverter.currentDate();
+            DateTime orderDate = TypeConverter.strToDate(orderDateString, TypeConverter.DateTimeConfig.DATE_PATTERN);
+            DateTime currentDate = DateTime.Now;
 
             if (orderDate > currentDate)
             {

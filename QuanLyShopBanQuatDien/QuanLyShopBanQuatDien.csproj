@@ -56,6 +56,7 @@
     </Content>
     <Content Include="Pages\access_denied.aspx" />
     <Content Include="Pages\activities_log_page.aspx" />
+    <Content Include="Pages\activity_log_info.aspx" />
     <Content Include="Pages\category_info.aspx" />
     <Content Include="Pages\category_page.aspx" />
     <Content Include="Pages\customer_info.aspx" />
@@ -131,6 +132,8 @@
     <Compile Include="Entities\GRNDetailEntity.cs" />
     <Compile Include="Entities\GRNEntity.cs" />
     <Compile Include="Entities\LogEntity.cs" />
+    <Compile Include="Entities\OperationLogDetailEntity.cs" />
+    <Compile Include="Entities\OperationLogEntity.cs" />
     <Compile Include="Entities\OrderDetailEntity.cs" />
     <Compile Include="Entities\PermissionEntity.cs" />
     <Compile Include="Entities\ProductEntity.cs" />
@@ -165,6 +168,13 @@
     </Compile>
     <Compile Include="Pages\activities_log_page.aspx.designer.cs">
       <DependentUpon>activities_log_page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\activity_log_info.aspx.cs">
+      <DependentUpon>activity_log_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\activity_log_info.aspx.designer.cs">
+      <DependentUpon>activity_log_info.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\category_info.aspx.cs">
       <DependentUpon>category_info.aspx</DependentUpon>

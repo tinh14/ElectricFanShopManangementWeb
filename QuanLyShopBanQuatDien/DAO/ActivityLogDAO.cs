@@ -14,7 +14,8 @@ namespace QuanLyShopBanQuatDien.DAO
         {
             string sql = "select * from Log "
                 + "inner join ActivityLog "
-                + "on Log.id = ActivityLog.id ";
+                + "on Log.id = ActivityLog.id "
+                + "order by timestamp desc";
 
             return DatabaseQueryExecutor.executeQuery(sql, new ActivityLogMapper());
         }
@@ -34,10 +35,24 @@ namespace QuanLyShopBanQuatDien.DAO
             string sql = "select * from Log "
                 + "inner join ActivityLog "
                 + "on Log.id = ActivityLog.id "
-                + "where timestamp between @startDate and @endDate";
+                + "where timestamp between @startDate and @endDate "
+                + "order by timestamp desc";
             SqlParameter[] parameters = new SqlParameter[]{
                 new SqlParameter("@startDate", startDate),
                 new SqlParameter("@endDate", endDate)
+            };
+            return DatabaseQueryExecutor.executeQuery(sql, new ActivityLogMapper(), parameters);
+        }
+
+        public static List<ActivityLogEntity> findById(long id)
+        {
+            string sql = "select * from Log "
+                + "inner join ActivityLog "
+                + "on Log.id = ActivityLog.id "
+                + "where Log.id = @id "
+                + "order by timestamp desc";
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@id", id)
             };
             return DatabaseQueryExecutor.executeQuery(sql, new ActivityLogMapper(), parameters);
         }

@@ -42,7 +42,7 @@ namespace QuanLyShopBanQuatDien.Pages
             }
 
             codeTextBox.Text = grn.code;
-            grnDateTextBox.Text = TypeConverter.dateToStr(grn.grnDate);
+            grnDateTextBox.Text = TypeConverter.dateToStr(grn.grnDate, TypeConverter.DateTimeConfig.DATE_PATTERN);
             supplierDropDownList.SelectedValue = grn.supplier.code;
             userTextBox.Text = grn.user.username;
             totalAmountTextBox.Text = grn.totalAmount.ToString();
@@ -54,7 +54,7 @@ namespace QuanLyShopBanQuatDien.Pages
         public void createPageConfig()
         {
             userTextBox.Text = UserSessionManager.currentUser.username;
-            grnDateTextBox.Text = TypeConverter.dateToStr(DateTime.Now);
+            grnDateTextBox.Text = TypeConverter.dateToStr(DateTime.Now, TypeConverter.DateTimeConfig.DATE_PATTERN);
             List<GRNDetailEntity> grnDetails = new List<GRNDetailEntity>();
             ViewStateManager.state(ViewState, grnDetails);
             PageUtils.bindData(gridView, grnDetails);
@@ -103,7 +103,7 @@ namespace QuanLyShopBanQuatDien.Pages
 
             GRNEntity grn = new GRNEntity();
             grn.code = codeTextBox.Text;
-            grn.grnDate = TypeConverter.strToDate(grnDateTextBox.Text);
+            grn.grnDate = TypeConverter.strToDate(grnDateTextBox.Text, TypeConverter.DateTimeConfig.DATE_PATTERN);
             grn.supplier.code = supplierDropDownList.SelectedValue;
             grn.user.username = UserSessionManager.currentUser.username;
 
@@ -162,15 +162,15 @@ namespace QuanLyShopBanQuatDien.Pages
         {
             string grnDateString = grnDateTextBox.Text;
 
-            if (!TypeConverter.isValidDate(grnDateString))
+            if (!TypeConverter.isValidDate(grnDateString, TypeConverter.DateTimeConfig.DATE_PATTERN))
             {
                 args.IsValid = false;
                 grnDateValidator.ErrorMessage = "Ngày lập phiếu nhập không hợp lệ";
                 return;
             }
 
-            DateTime grnDate = TypeConverter.strToDate(grnDateString);
-            DateTime currentDate = TypeConverter.currentDate();
+            DateTime grnDate = TypeConverter.strToDate(grnDateString, TypeConverter.DateTimeConfig.DATE_PATTERN);
+            DateTime currentDate = DateTime.Now;
 
             if (grnDate > currentDate)
             {

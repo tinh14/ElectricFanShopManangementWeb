@@ -63,10 +63,10 @@ namespace QuanLyShopBanQuatDien.Pages
                 return;
             }
 
-            if (!TypeConverter.isValidDate(startDateStr))
+            if (!TypeConverter.isValidDate(startDateStr, TypeConverter.DateTimeConfig.DATE_TIME_PATTERN))
             {
                 args.IsValid = false;
-                startDateValidator.ErrorMessage = "Ngày bắt đầu không hợp lệ";
+                startDateValidator.ErrorMessage = "Thời gian bắt đầu không hợp lệ";
                 return;
             }
             args.IsValid = true;
@@ -82,10 +82,10 @@ namespace QuanLyShopBanQuatDien.Pages
                 return;
             }
 
-            if (!TypeConverter.isValidDate(endDateStr))
+            if (!TypeConverter.isValidDate(endDateStr, TypeConverter.DateTimeConfig.DATE_TIME_PATTERN))
             {
                 args.IsValid = false;
-                endDateValidator.ErrorMessage = "Ngày kết thúc không hợp lệ";
+                endDateValidator.ErrorMessage = "Thời gian kết thúc không hợp lệ";
                 return;
             }
 
@@ -104,17 +104,17 @@ namespace QuanLyShopBanQuatDien.Pages
             string startDateStr = startDateTextBox.Text;
             string endDateStr = endDateTextBox.Text;
 
-            DateTime startDate = new DateTime(1753, 1, 1);
-            DateTime endDate = new DateTime(9999, 12, 31);
+            DateTime startDate = TypeConverter.databaseMinDate();
+            DateTime endDate = TypeConverter.databaseMaxDate();
 
             if (startDateStr != "")
             {
-                startDate = TypeConverter.strToDate(startDateStr);
+                startDate = TypeConverter.strToDate(startDateStr, TypeConverter.DateTimeConfig.DATE_TIME_PATTERN);
             }
 
             if (endDateStr != "")
             {
-                endDate = TypeConverter.strToDate(endDateStr);
+                endDate = TypeConverter.strToDate(endDateStr, TypeConverter.DateTimeConfig.DATE_TIME_PATTERN);
             }
 
 

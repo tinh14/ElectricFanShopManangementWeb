@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
     <div id="header" class="bg-light px-4 py-3">
-        <div class="h2">
+        <div class="h4">
             Nhà cung cấp</div>
     </div>
     <div id="body" class="bg-light">

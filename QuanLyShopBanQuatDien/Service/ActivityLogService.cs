@@ -33,5 +33,17 @@ namespace QuanLyShopBanQuatDien.Service
 
             return ActivityLogDAO.create(activityLogEntity);
         }
+
+        public static ActivityLogEntity findById(Int64 id)
+        {
+            List<ActivityLogEntity> logs = ActivityLogDAO.findById(id);
+
+            if (DataUtils.isEmpty(logs))
+            {
+                return null;
+            }
+
+            return logs[0];
+        }
     }
 }
