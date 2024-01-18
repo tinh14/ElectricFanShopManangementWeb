@@ -189,8 +189,6 @@ namespace QuanLyShopBanQuatDien.Pages
 
         protected void nameValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            args.IsValid = true;
-            return;
             string name = nameTextBox.Text;
 
             if (string.IsNullOrWhiteSpace(name))

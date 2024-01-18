@@ -33,8 +33,8 @@
                 </asp:LinkButton>
             </div>
         </div>
-        <div class="row px-4 ">
-            <div class="col-12">
+        <div class="px-4">
+            <div class="table-responsive">
                 <asp:GridView ID="gridView" class="bg-white rounded shadow table table-hover table-bordered text-center"
                     runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true"
                     EmptyDataText="Không có dữ liệu" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
@@ -60,18 +60,16 @@
                                 <%# Eval("user.username") %>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField DataField="totalAmount" HeaderText="Tổng tiền" DataFormatString="{0:N}"/>
+                        <asp:BoundField DataField="totalAmount" HeaderText="Tổng tiền" DataFormatString="{0:N}" />
                     </Columns>
                 </asp:GridView>
             </div>
         </div>
-        <div class="row ml-2 mt-2">
-            <div class="col-12">
-                <div class="small font-italic">
-                    Tổng
-                    <asp:Label ID="totalOfRecordsLabel" runat="server"></asp:Label>
-                    bản ghi</div>
-            </div>
+        <div class="ml-4 mt-2">
+            <div class="small font-italic text-secondary">
+                Tổng
+                <asp:Label ID="totalOfRecordsLabel" runat="server"></asp:Label>
+                bản ghi</div>
         </div>
     </div>
     <div id="footer">

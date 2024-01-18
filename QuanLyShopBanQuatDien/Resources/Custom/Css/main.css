@@ -37,8 +37,12 @@
 
 table
 {
-    max-height: 70vh;
     width: 100%;
+}
+
+.table-responsive 
+{
+    max-height: 70vh;
 }
 
 td, th

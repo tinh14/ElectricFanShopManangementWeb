@@ -27,11 +27,11 @@ namespace QuanLyShopBanQuatDien.Pages.Utils
             
             if (isSuccess)
             {
-                label.CssClass = "text-success";
+                label.CssClass = "text-success small";
                 return;
             }
 
-            label.CssClass = "text-danger";
+            label.CssClass = "text-danger small";
         }
     }
 }

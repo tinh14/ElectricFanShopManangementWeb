@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/master_page.Master" AutoEventWireup="true" CodeBehind="supplier_page.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.supplier_page" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/master_page.Master" AutoEventWireup="true"
+    CodeBehind="supplier_page.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.supplier_page" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="titleContentPlaceHolder" runat="server">
     Nhà cung cấp
 </asp:Content>
@@ -31,13 +33,12 @@
                 </asp:LinkButton>
             </div>
         </div>
-        <div class="row px-4">
-            <div class="col-12">
-                <asp:GridView ID="gridView" class="bg-white rounded shadow table table-hover table-bordered text-center"
-                    runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" 
-                    ShowHeaderWhenEmpty="true" EmptyDataText="Không có dữ liệu" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
-                    OnRowDataBound="gridView_RowDataBound" 
-                    onrowcommand="gridView_RowCommand">
+        <div class="px-4">
+            <div class="table-responsive">
+                <asp:GridView ID="gridView" class="bg-white rounded table table-hover table-bordered text-center"
+                    runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true"
+                    EmptyDataText="Không có dữ liệu" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
+                    OnRowDataBound="gridView_RowDataBound" OnRowCommand="gridView_RowCommand">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
@@ -56,13 +57,11 @@
                 </asp:GridView>
             </div>
         </div>
-        <div class="row ml-2 mt-4">
-            <div class="col-12">
-                <div class="small font-italic">
-                    Tổng
-                    <asp:Label ID="totalOfRecordsLabel" runat="server"></asp:Label>
-                    bản ghi</div>
-            </div>
+        <div class=" ml-4 mt-2">
+            <div class="small font-italic text-secondary">
+                Tổng
+                <asp:Label ID="totalOfRecordsLabel" runat="server"></asp:Label>
+                bản ghi</div>
         </div>
     </div>
     <div id="footer">

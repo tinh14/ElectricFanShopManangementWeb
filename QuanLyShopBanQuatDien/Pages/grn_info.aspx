@@ -1,21 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/master_page.Master" AutoEventWireup="true"
-    CodeBehind="order_info.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.order_info" %>
+    CodeBehind="grn_info.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.grn_info" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titleContentPlaceHolder" runat="server">
-    Thêm hóa đơn
+    Thêm phiếu nhập
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="headContentPlaceHolder" runat="server">
     <link rel="stylesheet" href="../Resources/Libs/jquery-ui/jquery-ui.css">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
     <div id="header" class="px-4 py-3">
-        <asp:Label ID="pageNameLabel" class="h2" runat="server" Text="Thêm hóa đơn"></asp:Label>
+        <asp:Label ID="pageNameLabel" class="h2" runat="server" Text="Thêm phiếu nhập"></asp:Label>
     </div>
     <div id="body" class="overflow-auto">
         <div class="d-flex justify-content-between ml-4 mt-4">
-            <asp:LinkButton ID="LinkButton1" href="order_page.aspx" class="btn shadow btn-secondary"
+            <asp:LinkButton ID="LinkButton1" href="grn_page.aspx" class="btn shadow btn-secondary"
                 runat="server">
-                <i class="fa fa-arrow-left mr-2" aria-hidden="true"></i>Hóa đơn
+                <i class="fa fa-arrow-left mr-2" aria-hidden="true"></i>Phiếu nhập
             </asp:LinkButton>
             <div>
                 <asp:LinkButton ID="saveLinkButton" class="shadow btn btn-primary mr-3" runat="server"
@@ -32,35 +32,35 @@
             <div class="text-center">
                 <asp:Label ID="messageLabel" class="" runat="server"></asp:Label>
             </div>
-            <div class="form-row ml-3 mr-2 mt-4 border-bottom">
+            <div class="form-row ml-3 mr-2 mt-4 bgrn-bottom">
                 <div class="col-12">
                     <div class="h6 text-secondary">
-                        Thông tin hóa đơn</div>
+                        Thông tin phiếu nhập</div>
                 </div>
             </div>
             <div class="form-row ml-3 mr-2 mt-3">
                 <div class="col-4">
                     <label for="codeTextBox">
-                        Mã hóa đơn</label>
+                        Mã phiếu nhập</label>
                     <asp:TextBox ID="codeTextBox" class="form-control" runat="server"></asp:TextBox>
                     <asp:CustomValidator ID="codeValidator" class="text-danger small" runat="server"
                         OnServerValidate="codeValidator_ServerValidate"></asp:CustomValidator>
                 </div>
                 <div class="col-4">
-                    <label for="customerDropDownList">
-                        Mã khách hàng</label>
-                    <asp:DropDownList ID="customerDropDownList" DataTextField="name" DataValueField="code"
+                    <label for="supplierDropDownList">
+                        Mã nhà cung cấp</label>
+                    <asp:DropDownList ID="supplierDropDownList" DataTextField="name" DataValueField="code"
                         class="form-control" runat="server">
                     </asp:DropDownList>
-                    <asp:CustomValidator ID="customerValidator" class="text-danger small" runat="server"
-                        OnServerValidate="customerValidator_ServerValidate"></asp:CustomValidator>
+                    <asp:CustomValidator ID="supplierValidator" class="text-danger small" runat="server"
+                        OnServerValidate="supplierValidator_ServerValidate"></asp:CustomValidator>
                 </div>
                 <div class="col-4">
-                    <label for="orderDateTextBox">
+                    <label for="grnDateTextBox">
                         Ngày lập</label>
-                    <asp:TextBox ID="orderDateTextBox" ClientIDMode="Static" class="form-control" runat="server"></asp:TextBox>
-                    <asp:CustomValidator ID="orderDateValidator" class="text-danger small" runat="server"
-                        OnServerValidate="orderDateValidator_ServerValidate"></asp:CustomValidator>
+                    <asp:TextBox ID="grnDateTextBox" ClientIDMode="Static" class="form-control" runat="server"></asp:TextBox>
+                    <asp:CustomValidator ID="grnDateValidator" class="text-danger small" runat="server"
+                        OnServerValidate="grnDateValidator_ServerValidate"></asp:CustomValidator>
                 </div>
             </div>
             <div class="form-row ml-3 mr-2 mt-4">
@@ -76,7 +76,7 @@
                         runat="server"></asp:TextBox>
                 </div>
             </div>
-            <div class="form-row ml-3 mr-2 mt-4 border-bottom">
+            <div class="form-row ml-3 mr-2 mt-4 bgrn-bottom">
                 <div class="col-12">
                     <div class="h6 text-secondary mt-2">
                         Danh sách sản phẩm</div>
@@ -108,8 +108,8 @@
                         <Columns>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LinkButton1" CausesValidation="false" class="btn btn-danger" runat="server" CommandName="Select"
-                                        CommandArgument='<%# Container.DataItemIndex %>'>
+                                    <asp:LinkButton ID="LinkButton1" CausesValidation="false" class="btn btn-danger"
+                                        runat="server" CommandName="Select" CommandArgument='<%# Container.DataItemIndex %>'>
                                     <i class="fa fa-times"></i>
                                     </asp:LinkButton>
                                 </ItemTemplate>
@@ -138,8 +138,8 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Đơn giá">
                                 <ItemTemplate>
-                                    <asp:TextBox ID="priceTextBox" ClientIDMode="Static" class="priceTextBox form-control text-center mx-auto" DataFormatString="{0:N}"
-                                        Style="width: 150px" runat="server" Text='<%# Eval("price") %>'></asp:TextBox>
+                                    <asp:TextBox ID="priceTextBox" ClientIDMode="Static" class="priceTextBox form-control text-center mx-auto"
+                                        DataFormatString="{0:N}" Style="width: 150px" runat="server" Text='<%# Eval("price") %>'></asp:TextBox>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Tổng">
@@ -160,7 +160,7 @@
     <script type="text/javascript" src="../Resources/Custom/Js/table-datasource-product-config.js"></script>
     <script type="text/javascript">
 
-        $('#orderDateTextBox').datepicker({
+        $('#grnDateTextBox').datepicker({
             dateFormat: 'dd/mm/yy'
         });
 

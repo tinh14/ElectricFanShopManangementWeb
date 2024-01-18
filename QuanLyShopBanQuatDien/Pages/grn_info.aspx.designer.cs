@@ -10,7 +10,7 @@
 namespace QuanLyShopBanQuatDien.Pages {
     
     
-    public partial class order_info {
+    public partial class grn_info {
         
         /// <summary>
         /// pageNameLabel control.
@@ -76,40 +76,40 @@ namespace QuanLyShopBanQuatDien.Pages {
         protected global::System.Web.UI.WebControls.CustomValidator codeValidator;
         
         /// <summary>
-        /// customerDropDownList control.
+        /// supplierDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList customerDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList supplierDropDownList;
         
         /// <summary>
-        /// customerValidator control.
+        /// supplierValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator customerValidator;
+        protected global::System.Web.UI.WebControls.CustomValidator supplierValidator;
         
         /// <summary>
-        /// orderDateTextBox control.
+        /// grnDateTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox orderDateTextBox;
+        protected global::System.Web.UI.WebControls.TextBox grnDateTextBox;
         
         /// <summary>
-        /// orderDateValidator control.
+        /// grnDateValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator orderDateValidator;
+        protected global::System.Web.UI.WebControls.CustomValidator grnDateValidator;
         
         /// <summary>
         /// userTextBox control.

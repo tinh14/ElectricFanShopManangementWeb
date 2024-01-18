@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/master_page.Master" AutoEventWireup="true" CodeBehind="user_page.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.user_page" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/master_page.Master" AutoEventWireup="true"
+    CodeBehind="user_page.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.user_page" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="titleContentPlaceHolder" runat="server">
     Sản phẩm
 </asp:Content>
@@ -25,8 +27,8 @@
                 </div>
                 <div class="col-4">
                     <div class="input-group shadow">
-                        <span class="input-group-text bg-outline-primary"><i class="fa fa-shield mr-2"></i>Vai trò
-                        </span>
+                        <span class="input-group-text bg-outline-primary"><i class="fa fa-shield mr-2"></i>Vai
+                            trò </span>
                         <asp:DropDownList ID="filterDropdownList" DataTextField="name" DataValueField="code"
                             class="custom-select" AppendDataBoundItems="true" runat="server" AutoPostBack="true"
                             OnSelectedIndexChanged="filterDropdownList_SelectedIndexChanged">
@@ -42,13 +44,12 @@
                 </asp:LinkButton>
             </div>
         </div>
-        <div class="row px-4">
-            <div class="col-12">
+        <div class="px-4">
+            <div class="table-responsive">
                 <asp:GridView ID="gridView" class="bg-white rounded shadow table table-hover table-bordered text-center overflow-auto"
-                    runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" 
-                    ShowHeaderWhenEmpty="true" EmptyDataText="Không có dữ liệu" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
-                    OnRowDataBound="gridView_RowDataBound" 
-                    onrowcommand="gridView_RowCommand">
+                    runat="server" AutoGenerateEditButton="False" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true"
+                    EmptyDataText="Không có dữ liệu" EmptyDataRowStyle-CssClass="font-italic text-secondary h6"
+                    OnRowDataBound="gridView_RowDataBound" OnRowCommand="gridView_RowCommand">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
@@ -74,13 +75,11 @@
                 </asp:GridView>
             </div>
         </div>
-        <div class="row ml-2 mt-4">
-            <div class="col-12">
-                <div class="small font-italic">
-                    Tổng
-                    <asp:Label ID="totalOfRecordsLabel" runat="server"></asp:Label>
-                    bản ghi</div>
-            </div>
+        <div class="ml-4 mt-2">
+            <div class="small font-italic text-secondary">
+                Tổng
+                <asp:Label ID="totalOfRecordsLabel" runat="server"></asp:Label>
+                bản ghi</div>
         </div>
     </div>
     <div id="footer">

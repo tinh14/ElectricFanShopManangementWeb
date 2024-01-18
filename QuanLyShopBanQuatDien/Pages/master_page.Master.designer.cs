@@ -85,15 +85,6 @@ namespace QuanLyShopBanQuatDien.Pages {
         protected global::System.Web.UI.WebControls.LinkButton orderLinkButton;
         
         /// <summary>
-        /// GRNLinkButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton GRNLinkButton;
-        
-        /// <summary>
         /// productLinkButton control.
         /// </summary>
         /// <remarks>
@@ -119,15 +110,6 @@ namespace QuanLyShopBanQuatDien.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton customerLinkButotn;
-        
-        /// <summary>
-        /// supplierLinkButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton supplierLinkButton;
         
         /// <summary>
         /// userLinkButton control.

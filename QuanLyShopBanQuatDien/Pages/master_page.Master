@@ -36,11 +36,11 @@
                     <i class="fa fa-file-text-o mr-2"></i>
                     <span class="font-weight-bold">Hóa đơn</span>
             </asp:LinkButton>
-            <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
+            <%--<asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
                 ID="GRNLinkButton" href="grn_page.aspx" runat="server">
                     <i class="fa fa-file-o mr-2"></i>
                     <span class="font-weight-bold">Phiếu nhập</span>
-            </asp:LinkButton>
+            </asp:LinkButton>--%>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
                 ID="productLinkButton" href="product_page.aspx" runat="server">
                     <i class="fa fa-cube mr-2"></i>
@@ -56,11 +56,11 @@
                     <i class="fa fa-address-card mr-2"></i>
                     <span class="font-weight-bold">Khách hàng</span>
             </asp:LinkButton>
-            <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
+            <%--<asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
                 ID="supplierLinkButton" href="supplier_page.aspx" runat="server">
                     <i class="fa fa-truck  mr-2"></i>
                     <span class="font-weight-bold">Nhà cung cấp</span>
-            </asp:LinkButton>
+            </asp:LinkButton>--%>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
                 ID="userLinkButton" href="user_page.aspx" runat="server">
                     <i class="fa fa-user mr-2"></i>

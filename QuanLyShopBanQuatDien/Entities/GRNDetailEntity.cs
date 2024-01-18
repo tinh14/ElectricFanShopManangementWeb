@@ -7,17 +7,17 @@ using QuanLyShopBanQuatDien.Pages;
 namespace QuanLyShopBanQuatDien.Entities
 {
     [Serializable]
-    public class OrderDetailEntity
+    public class GRNDetailEntity
     {
         public int quantity { get; set; }
         public int price { get; set; }
         public Int64 subtotal { get; set; }
-        public OrderEntity order { get; set; }
+        public GRNEntity grn { get; set; }
         public ProductEntity product { get; set; }
 
-        public OrderDetailEntity()
+        public GRNDetailEntity()
         {
-            this.order = new OrderEntity();
+            this.grn = new GRNEntity();
             this.product = new ProductEntity();
         }
     }

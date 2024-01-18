@@ -22,5 +22,29 @@ namespace QuanLyShopBanQuatDien.DAO
 
             return DatabaseQueryExecutor.executeQuery(sql, new OrderDetailMapper(), parameters);
         }
+
+        public static bool create(OrderDetailEntity orderDetail)
+        {
+            string sql = "insert into OrderDetail values (@orderCode, @productCode, @quantity, "
+                         + "@price, @subtotal)";
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@orderCode", orderDetail.order.code),
+                new SqlParameter("@productCode", orderDetail.product.code),
+                new SqlParameter("@quantity", orderDetail.quantity),
+                new SqlParameter("@price", orderDetail.price),
+                new SqlParameter("@subtotal", orderDetail.subtotal)
+            };
+
+            return DatabaseQueryExecutor.executeUpdate(sql, parameters);
+        }
+
+        public static bool deleteByOrderCode(string code)
+        {
+            string sql = "delete from OrderDetail where orderCode = @code";
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@code", code)
+            };
+            return DatabaseQueryExecutor.executeUpdate(sql, parameters);
+        }
     }
 }

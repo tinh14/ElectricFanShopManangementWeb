@@ -6,6 +6,7 @@ using QuanLyShopBanQuatDien.Pages;
 using QuanLyShopBanQuatDien.DAO;
 using QuanLyShopBanQuatDien.Pages.Utils;
 using QuanLyShopBanQuatDien.Entities;
+using QuanLyShopBanQuatDien.DTO;
 
 namespace QuanLyShopBanQuatDien.Service
 {
@@ -39,19 +40,93 @@ namespace QuanLyShopBanQuatDien.Service
             return order;
         }
 
-        internal static bool delete(string code)
+        public static ResponseObject<OrderEntity> create(OrderEntity order)
         {
-            throw new NotImplementedException();
+            ResponseObject<OrderEntity> res = new ResponseObject<OrderEntity>();
+            res.isSuccess = false;
+
+            if (OrderDAO.checkExist(order.code))
+            {
+                res.errorMessage = "Mã hóa đơn đã tồn tại";
+                return res;
+            }
+
+            foreach (OrderDetailEntity orderDetail in order.orderDetails)
+            {
+                order.totalAmount += orderDetail.subtotal;
+            }
+
+            if (!OrderDAO.create(order))
+            {
+                res.errorMessage = "Không thể tạo hóa đơn";
+                return res;
+            }
+
+            foreach (OrderDetailEntity orderDetail in order.orderDetails)
+            {
+                orderDetail.order = order;
+                OrderDetailDAO.create(orderDetail);
+            }
+
+            res.isSuccess = true;
+            return res;
         }
 
-        internal static bool create(OrderEntity order)
+        public static ResponseObject<OrderEntity> update(OrderEntity order)
         {
-            throw new NotImplementedException();
+            ResponseObject<OrderEntity> res = new ResponseObject<OrderEntity>();
+            res.isSuccess = false;
+
+            if (!OrderDAO.checkExist(order.code))
+            {
+                res.errorMessage = "Mã hóa đơn không tồn tại";
+                return res;
+            }
+            
+            order.totalAmount = 0;
+
+            foreach (OrderDetailEntity orderDetail in order.orderDetails)
+            {
+                order.totalAmount += orderDetail.subtotal;
+            }
+
+            if (!OrderDAO.update(order))
+            {
+                res.errorMessage = "Không thể cập nhật hóa đơn";
+                return res;
+            }
+
+            OrderDetailDAO.deleteByOrderCode(order.code);
+
+            foreach (OrderDetailEntity orderDetail in order.orderDetails)
+            {
+                orderDetail.order = order;
+                OrderDetailDAO.create(orderDetail);
+            }
+
+            res.isSuccess = true;
+            return res;
         }
 
-        internal static bool update(OrderEntity order)
+        public static ResponseObject<OrderEntity> delete(string code)
         {
-            throw new NotImplementedException();
+            ResponseObject<OrderEntity> res = new ResponseObject<OrderEntity>();
+            res.isSuccess = false;
+
+            if (!OrderDAO.checkExist(code))
+            {
+                res.errorMessage = "Mã hóa đơn không tồn tại";
+                return res;
+            }
+
+            if (!OrderDAO.delete(code))
+            {
+                res.errorMessage = "Không thể xóa hóa đơn";
+                return res;
+            }
+
+            res.isSuccess = true;
+            return res;
         }
     }
 }

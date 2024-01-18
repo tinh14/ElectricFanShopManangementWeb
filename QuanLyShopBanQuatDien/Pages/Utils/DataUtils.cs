@@ -23,5 +23,12 @@ namespace QuanLyShopBanQuatDien.Pages.Utils
         {
             return obj == null;
         }
+
+        public static bool strCompare(string str1, string str2)
+        {
+            return str1.ToLower() == str2.ToLower();
+        }
+
+        
     }
 }

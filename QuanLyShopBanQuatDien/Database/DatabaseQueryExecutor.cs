@@ -69,5 +69,23 @@ namespace QuanLyShopBanQuatDien.DAO
             return result;
         }
 
+        public static Int64 executeScalar(string sql, SqlParameter[] parameters)
+        {
+            sql += "; SELECT SCOPE_IDENTITY();";
+
+            SqlConnection con = DatabaseConnectionProvider.openConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            if (parameters != null)
+            {
+                cmd.Parameters.AddRange(parameters);
+            }
+
+            Int64 id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            DatabaseConnectionProvider.closeConnection(con);
+
+            return id;
+        }
+
     }
 }

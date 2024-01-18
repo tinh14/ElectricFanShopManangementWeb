@@ -33,7 +33,7 @@
                 </asp:LinkButton>
             </div>
         </div>
-        <div>
+        <div class="mb-5">
             <div class="form-row">
                 <div class="col-12 text-center">
                     <asp:Label ID="messageLabel" class="" runat="server"></asp:Label>
@@ -101,11 +101,6 @@
                 var allChecked = checkboxes.length === checkboxes.filter(':checked').length;
                 masterCheckBox.prop('checked', allChecked);
             });
-
-//            var masterCheckBox = $('td div:nth-child(2) input').closest("td").find('> div:first-child input');
-//            var checkboxes = $('td div:nth-child(2) input').closest("td").find("> div:nth-child(2) input");
-//            var allChecked = checkboxes.length === checkboxes.filter(':checked').length;
-//            masterCheckBox.prop('checked', allChecked);
         });
     </script>
 </asp:Content>

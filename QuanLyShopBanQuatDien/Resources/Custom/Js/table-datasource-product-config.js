@@ -8,7 +8,8 @@
         searching: false,
         lengthChange: false,
         info: false,
-        paging: false
+        paging: false,
+        dom: 'Bfrtip'
     });
 });
         
