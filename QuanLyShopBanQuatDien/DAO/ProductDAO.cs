@@ -61,12 +61,13 @@ namespace QuanLyShopBanQuatDien.DAO
         public static bool create(ProductEntity product)
         {
             string sql = "insert into product "
-                       + "values(@code, @name, @brand, @power, @size, @material, @color, "
+                       + "values(@code, @name, @price, @brand, @power, @size, @material, @color, "
                        + "@speed, @image, @categoryCode)";
             
             SqlParameter[] parameters = new SqlParameter[]{
                 new SqlParameter("@code", product.code),
                 new SqlParameter("@name", product.name),
+                new SqlParameter("@price", product.price),
                 new SqlParameter("@brand", product.brand),
                 new SqlParameter("@power", product.power),
                 new SqlParameter("@size", product.size),
@@ -83,7 +84,7 @@ namespace QuanLyShopBanQuatDien.DAO
         public static bool update(ProductEntity product)
         {
             string sql = "update product "
-                       + "set productCode = @code, productName = @name, brand = @brand, power = @power, "
+                       + "set productCode = @code, productName = @name, price = @price, brand = @brand, power = @power, "
                        + "size = @size, material = @material, color = @color, speed = @speed, "
                        + "image = @image, categoryCode = @categoryCode "
                        + "where productCode = @code";
@@ -91,6 +92,7 @@ namespace QuanLyShopBanQuatDien.DAO
             SqlParameter[] parameters = new SqlParameter[]{
                 new SqlParameter("@code", product.code),
                 new SqlParameter("@name", product.name),
+                new SqlParameter("@price", product.price),
                 new SqlParameter("@brand", product.brand),
                 new SqlParameter("@power", product.power),
                 new SqlParameter("@size", product.size),

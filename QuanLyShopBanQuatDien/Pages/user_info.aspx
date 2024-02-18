@@ -2,19 +2,19 @@
     CodeBehind="user_info.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.user_info" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titleContentPlaceHolder" runat="server">
-    Thêm sản phẩm
+    Thêm nhân viên
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="headContentPlaceHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
     <div id="header" class="px-4 py-3">
-        <asp:Label ID="pageNameLabel" class="h4" runat="server" Text="Thêm người dùng"></asp:Label>
+        <asp:Label ID="pageNameLabel" class="h4" runat="server" Text="Thêm nhân viên"></asp:Label>
     </div>
     <div id="body">
         <div class="d-flex justify-content-between ml-4 mt-4">
             <asp:LinkButton ID="LinkButton1" href="user_page.aspx" class="btn shadow btn-secondary"
                 runat="server">
-                <i class="fa fa-arrow-left mr-2" aria-hidden="true"></i>  Người dùng
+                <i class="fa fa-arrow-left mr-2" aria-hidden="true"></i>  Nhân viên
             </asp:LinkButton>
             <div>
                 <asp:LinkButton ID="saveLinkButton" class="shadow btn btn-primary mr-3" runat="server"

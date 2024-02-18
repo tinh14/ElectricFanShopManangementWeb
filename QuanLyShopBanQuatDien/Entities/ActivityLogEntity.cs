@@ -8,6 +8,8 @@ namespace QuanLyShopBanQuatDien.Entities
     [Serializable]
     public class ActivityLogEntity : LogEntity
     {
+        public string ip { get; set; }
+        public string deviceInfo { get; set; }
         public bool isSuccess { get; set; }
     }
 }

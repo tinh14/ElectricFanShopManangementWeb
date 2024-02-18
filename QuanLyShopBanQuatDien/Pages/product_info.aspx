@@ -59,6 +59,13 @@
             </div>
             <div class="form-row ml-3 mr-2 mt-2">
                 <div class="col-4">
+                    <label for="priceTextBox">
+                        Giá</label>
+                    <asp:TextBox ID="priceTextBox" class="form-control" runat="server"></asp:TextBox>
+                    <asp:CustomValidator ID="priceValidator" class="text-danger small" runat="server"
+                        OnServerValidate="priceValidator_ServerValidate"></asp:CustomValidator>
+                </div>
+                <div class="col-4">
                     <label for="brandTextBox">
                         Thương hiệu</label>
                     <asp:TextBox ID="brandTextBox" class="form-control" runat="server"></asp:TextBox>
@@ -72,6 +79,8 @@
                     <asp:CustomValidator ID="powerValidator" class="text-danger small" runat="server"
                         OnServerValidate="powerValidator_ServerValidate"></asp:CustomValidator>
                 </div>
+            </div>
+            <div class="form-row ml-3 mr-2 mt-2">
                 <div class="col-4">
                     <label for="sizeTextBox">
                         Kích thước</label>
@@ -79,8 +88,6 @@
                     <asp:CustomValidator ID="sizeValidator" class="text-danger small" runat="server"
                         OnServerValidate="sizeValidator_ServerValidate"></asp:CustomValidator>
                 </div>
-            </div>
-            <div class="form-row ml-3 mr-2 mt-2">
                 <div class="col-4">
                     <label for="materialTextBox">
                         Chất liệu</label>
@@ -95,6 +102,9 @@
                     <asp:CustomValidator ID="colorValidator" class="text-danger small" runat="server"
                         OnServerValidate="colorValidator_ServerValidate"></asp:CustomValidator>
                 </div>
+                
+            </div>
+            <div class="form-row ml-3 mr-2 mt-2">
                 <div class="col-4">
                     <label for="speedTextBox">
                         Tốc độ gió</label>
@@ -133,5 +143,4 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
-    
 </asp:Content>

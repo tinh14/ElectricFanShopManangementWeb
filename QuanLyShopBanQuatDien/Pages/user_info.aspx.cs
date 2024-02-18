@@ -53,7 +53,7 @@ namespace QuanLyShopBanQuatDien.Pages
 
         private void updatePageConfig()
         {
-            pageNameLabel.Text = "Sửa người dùng";
+            pageNameLabel.Text = "Sửa nhân viên";
             deleteLinkButton.Visible = true;
             usernameTextBox.Attributes["readonly "] = "readonly";
 

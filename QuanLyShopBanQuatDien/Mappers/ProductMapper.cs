@@ -14,6 +14,7 @@ namespace QuanLyShopBanQuatDien.Mappers
             ProductEntity product = new ProductEntity();
             product.code = reader.GetString(reader.GetOrdinal("productCode"));
             product.name = reader.GetString(reader.GetOrdinal("productName"));
+            product.price = reader.GetInt32(reader.GetOrdinal("price"));
             product.power = reader.GetString(reader.GetOrdinal("power"));
             product.brand = reader.GetString(reader.GetOrdinal("brand"));
             product.size = reader.GetString(reader.GetOrdinal("size"));

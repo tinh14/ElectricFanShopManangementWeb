@@ -15,10 +15,10 @@ namespace QuanLyShopBanQuatDien.Mappers
             activityLog.id = reader.GetInt64(reader.GetOrdinal("id"));
             activityLog.username = reader.GetString(reader.GetOrdinal("username"));
             activityLog.timestamp = reader.GetDateTime(reader.GetOrdinal("timestamp"));
+            activityLog.isSuccess = reader.GetBoolean(reader.GetOrdinal("isSuccess"));
             activityLog.ip = reader.GetString(reader.GetOrdinal("ip"));
             activityLog.deviceInfo = reader.GetString(reader.GetOrdinal("deviceInfo"));
-            activityLog.isSuccess = reader.GetBoolean(reader.GetOrdinal("isSuccess"));
-
+            
             return activityLog;
         }
     }

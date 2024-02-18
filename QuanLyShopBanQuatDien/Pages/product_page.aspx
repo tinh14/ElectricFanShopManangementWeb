@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-4">
                     <div class="input-group shadow">
-                        <span class="input-group-text bg-outline-primary"><i class="fa fa-tags mr-2"></i>Loại
+                        <span class="input-group-text" style="font-size: 14px"><i class="fa fa-tags mr-2"></i>Loại
                         </span>
                         <asp:DropDownList ID="categoryFilterDropdownList" DataTextField="name" DataValueField="code"
                             class="custom-select" AppendDataBoundItems="true" runat="server" AutoPostBack="true"
@@ -71,6 +71,7 @@
                                 <%# Eval("Category.name") %>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:BoundField DataField="price" HeaderText="Giá" />
                         <asp:BoundField DataField="brand" HeaderText="Thương hiệu" />
                         <asp:BoundField DataField="power" HeaderText="Công suất" />
                         <asp:BoundField DataField="size" HeaderText="Kích thước" />

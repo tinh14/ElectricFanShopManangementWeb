@@ -2,14 +2,14 @@
     CodeBehind="user_page.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.user_page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titleContentPlaceHolder" runat="server">
-    Sản phẩm
+    Nhân viên
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="headContentPlaceHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
     <div id="header" class="bg-light px-4 py-3">
         <div class="h4">
-            Người dùng</div>
+            Nhân viên</div>
     </div>
     <div id="body" class="bg-light">
         <div class="d-flex justify-content-between pl-4 py-3">

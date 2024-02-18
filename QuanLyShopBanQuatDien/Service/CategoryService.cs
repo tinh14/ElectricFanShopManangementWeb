@@ -5,11 +5,15 @@ using System.Web;
 using QuanLyShopBanQuatDien.Pages;
 using QuanLyShopBanQuatDien.DAO;
 using QuanLyShopBanQuatDien.Pages.Utils;
+using QuanLyShopBanQuatDien.Entities;
 
 namespace QuanLyShopBanQuatDien.Service
 {
     public class CategoryService
     {
+
+      
+
         public static List<CategoryEntity> findAll()
         {
             return CategoryDAO.findAll();
@@ -28,8 +32,7 @@ namespace QuanLyShopBanQuatDien.Service
 
         public static bool create(CategoryEntity category)
         {
-            if (CategoryDAO.checkExist(category.code))
-            {
+            if (CategoryDAO.checkExist(category.code)){
                 return false;
             }
 

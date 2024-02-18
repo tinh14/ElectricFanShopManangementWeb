@@ -11,13 +11,11 @@ namespace QuanLyShopBanQuatDien.DAO
     {
         public static Int64 create(LogEntity log)
         {
-            string sql = "insert into Log (username, timestamp, ip, deviceInfo) "
-                 +"values (@username, @timestamp, @ip, @deviceInfo)";
+            string sql = "insert into Log (username, timestamp) "
+                 +"values (@username, @timestamp)";
             SqlParameter[] parameters = new SqlParameter[]{
                 new SqlParameter("@username", log.username),
-                new SqlParameter("@timestamp", log.timestamp),
-                new SqlParameter("@ip", log.ip),
-                new SqlParameter("@deviceInfo", log.deviceInfo),
+                new SqlParameter("@timestamp", log.timestamp)
             };
             return DatabaseQueryExecutor.executeScalar(sql, parameters);
         }

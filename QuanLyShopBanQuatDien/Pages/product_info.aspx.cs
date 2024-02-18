@@ -66,6 +66,7 @@ namespace QuanLyShopBanQuatDien.Pages
 
             codeTextBox.Text = product.code;
             nameTextBox.Text = product.name;
+            priceTextBox.Text = product.price.ToString();
             brandTextBox.Text = product.brand;
             powerTextBox.Text = product.power;
             sizeTextBox.Text = product.size;
@@ -284,6 +285,7 @@ namespace QuanLyShopBanQuatDien.Pages
             ProductEntity product = new ProductEntity();
             product.code = codeTextBox.Text;
             product.name = nameTextBox.Text;
+            product.price = int.Parse(priceTextBox.Text);
             product.brand = brandTextBox.Text;
             product.power = powerTextBox.Text;
             product.size = sizeTextBox.Text;
@@ -325,6 +327,36 @@ namespace QuanLyShopBanQuatDien.Pages
             }
 
             Response.Redirect("~/Pages/product_page.aspx");
+        }
+
+        protected void priceValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string price = priceTextBox.Text;
+
+            if (string.IsNullOrWhiteSpace(price))
+            {
+                args.IsValid = false;
+                priceValidator.ErrorMessage = "Giá không được rỗng";
+                return;
+            }
+
+            if (!TypeConverter.isValidInt(price))
+            {
+                args.IsValid = false;
+                priceValidator.ErrorMessage = "Giá không hợp lệ";
+                return;
+            }
+
+            int validPrice = TypeConverter.strToInt(price);
+
+            if (validPrice <= 0)
+            {
+                args.IsValid = false;
+                priceValidator.ErrorMessage = "Giá phải là số nguyên dương";
+                return;
+            }
+
+            args.IsValid = true;
         }
     }
 }

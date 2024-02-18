@@ -64,10 +64,10 @@
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
                 ID="userLinkButton" href="user_page.aspx" runat="server">
                     <i class="fa fa-user mr-2"></i>
-                    <span class="font-weight-bold">Người dùng</span>
+                    <span class="font-weight-bold">Nhân viên</span>
             </asp:LinkButton>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0 mb-5"
-                ID="statisticsLinkButton" href="statistic_page.aspx" runat="server">
+                ID="statisticsLinkButton" href="statistics_page.aspx" runat="server">
                     <i class="fa fa-bar-chart-o mr-2"></i>
                     <span class="font-weight-bold">Thống kê</span>
             </asp:LinkButton>
@@ -81,11 +81,11 @@
                     <i class="fa fa-history mr-2"></i>
                     <span class="font-weight-bold">Nhật ký hoạt động</span>
             </asp:LinkButton>
-            <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
+            <%--<asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
                 ID="operationLogLinkButton" href="operations_log_page.aspx" runat="server">
                     <i class="fa fa-history mr-2"></i>
                     <span class="font-weight-bold">Nhật ký thao tác</span>
-            </asp:LinkButton>
+            </asp:LinkButton>--%>
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
                 ID="signoutLinkButton" runat="server" OnClick="signoutLinkButton_Click">
                     <i class="fa fa-sign-out mr-2"></i>

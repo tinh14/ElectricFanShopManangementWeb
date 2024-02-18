@@ -286,6 +286,10 @@ namespace QuanLyShopBanQuatDien.Pages
             }
 
             OrderDetailEntity newOrderDetail = new OrderDetailEntity();
+            newOrderDetail.price = product.price;
+            newOrderDetail.quantity = 1;
+            newOrderDetail.subtotal = product.price;
+
             newOrderDetail.product = product;
             orderDetails.Add(newOrderDetail);
             

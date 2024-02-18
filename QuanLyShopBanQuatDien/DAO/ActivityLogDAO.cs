@@ -22,10 +22,12 @@ namespace QuanLyShopBanQuatDien.DAO
 
         public static bool create(ActivityLogEntity activityLog)
         {
-            string sql = "insert into ActivityLog values (@id, @isSuccess)";
+            string sql = "insert into ActivityLog values (@id, @isSuccess, @ip, @deviceInfo)";
             SqlParameter[] parameters = new SqlParameter[]{
                 new SqlParameter("@id", activityLog.id),
-                new SqlParameter("@isSuccess", activityLog.isSuccess)
+                new SqlParameter("@isSuccess", activityLog.isSuccess),
+                new SqlParameter("@ip", activityLog.ip),
+                new SqlParameter("@deviceInfo", activityLog.deviceInfo)
             };
             return DatabaseQueryExecutor.executeUpdate(sql, parameters);
         }

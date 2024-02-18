@@ -3,3 +3,4 @@ D:\Projects\C# Projects\QuanLyShopBanQuatDien\QuanLyShopBanQuatDien\bin\QuanLySh
 D:\Projects\C# Projects\QuanLyShopBanQuatDien\QuanLyShopBanQuatDien\bin\QuanLyShopBanQuatDien.pdb
 D:\Projects\C# Projects\QuanLyShopBanQuatDien\QuanLyShopBanQuatDien\obj\Debug\QuanLyShopBanQuatDien.dll
 D:\Projects\C# Projects\QuanLyShopBanQuatDien\QuanLyShopBanQuatDien\obj\Debug\QuanLyShopBanQuatDien.pdb
+D:\Projects\C# Projects\QuanLyShopBanQuatDien\QuanLyShopBanQuatDien\obj\Debug\QuanLyShopBanQuatDien.csproj.ResolveComReference.cache

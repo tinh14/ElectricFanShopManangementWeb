@@ -13,6 +13,8 @@ namespace QuanLyShopBanQuatDien.Pages
 
         public string name { get; set; }
 
+        public int price { get; set; }
+
         public string power { get; set; }
 
         public string brand { get; set; }

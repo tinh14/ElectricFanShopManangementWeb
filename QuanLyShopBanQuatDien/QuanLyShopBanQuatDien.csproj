@@ -71,6 +71,7 @@
     <Content Include="Pages\role_info.aspx" />
     <Content Include="Pages\role_page.aspx" />
     <Content Include="Pages\signin_page.aspx" />
+    <Content Include="Pages\statistics_page.aspx" />
     <Content Include="Pages\supplier_info.aspx" />
     <Content Include="Pages\supplier_page.aspx" />
     <Content Include="Pages\user_info.aspx" />
@@ -111,6 +112,8 @@
   <ItemGroup>
     <Compile Include="DAO\ActivityLogDAO.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
+    <Compile Include="DAO\SqlPameter.cs" />
+    <Compile Include="DAO\StatisticsDAO.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\GRNDAO.cs" />
     <Compile Include="DAO\GRNDetailDAO.cs" />
@@ -126,14 +129,14 @@
     <Compile Include="Database\DatabaseConnectionProvider.cs" />
     <Compile Include="Database\DatabaseQueryExecutor.cs" />
     <Compile Include="DTO\ResponseObject.cs" />
+    <Compile Include="DTO\RevenueByCustomerDTO.cs" />
+    <Compile Include="DTO\RevenueByProductDTO.cs" />
     <Compile Include="Entities\ActivityLogEntity.cs" />
     <Compile Include="Entities\CategoryEntity.cs" />
     <Compile Include="Entities\CustomerEntity.cs" />
     <Compile Include="Entities\GRNDetailEntity.cs" />
     <Compile Include="Entities\GRNEntity.cs" />
     <Compile Include="Entities\LogEntity.cs" />
-    <Compile Include="Entities\OperationLogDetailEntity.cs" />
-    <Compile Include="Entities\OperationLogEntity.cs" />
     <Compile Include="Entities\OrderDetailEntity.cs" />
     <Compile Include="Entities\PermissionEntity.cs" />
     <Compile Include="Entities\ProductEntity.cs" />
@@ -143,6 +146,7 @@
     <Compile Include="Entities\UserEntity.cs" />
     <Compile Include="Mappers\ActivityLogMapper.cs" />
     <Compile Include="Mappers\CategoryMapper.cs" />
+    <Compile Include="Mappers\RevenueByCustomerMapper.cs" />
     <Compile Include="Mappers\CustomerMapper.cs" />
     <Compile Include="Mappers\GRNDetailMapper.cs" />
     <Compile Include="Mappers\GRNMapper.cs" />
@@ -150,6 +154,7 @@
     <Compile Include="Mappers\OrderMapper.cs" />
     <Compile Include="Mappers\PermissionMapper.cs" />
     <Compile Include="Mappers\ProductMapper.cs" />
+    <Compile Include="Mappers\RevenueByProductMapper.cs" />
     <Compile Include="Mappers\RoleMapper.cs" />
     <Compile Include="Mappers\RolePermissionMapper.cs" />
     <Compile Include="Mappers\RowMapper.cs" />
@@ -282,6 +287,13 @@
     <Compile Include="Pages\signin_page.aspx.designer.cs">
       <DependentUpon>signin_page.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\statistics_page.aspx.cs">
+      <DependentUpon>statistics_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\statistics_page.aspx.designer.cs">
+      <DependentUpon>statistics_page.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\supplier_info.aspx.cs">
       <DependentUpon>supplier_info.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -311,6 +323,7 @@
       <DependentUpon>user_page.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Utils\DataUtils.cs" />
+    <Compile Include="Pages\Utils\ExcelExporter.cs" />
     <Compile Include="Pages\Utils\TypeConverter.cs" />
     <Compile Include="Pages\Utils\PageStatusManager.cs" />
     <Compile Include="Pages\Utils\PageUtils.cs" />
@@ -327,13 +340,42 @@
     <Compile Include="Service\ProductService.cs" />
     <Compile Include="Service\RolePermissionService.cs" />
     <Compile Include="Service\RoleService.cs" />
+    <Compile Include="Service\StatisticsService.cs" />
     <Compile Include="Service\SupplierService.cs" />
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\master_page.Master" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Libs\bootstrap-4.5.3\css\bootstrap-grid.css.map" />
     <None Include="Resources\Libs\bootstrap-4.5.3\css\bootstrap-grid.min.css.map" />
@@ -379,7 +421,10 @@
     <None Include="Resources\Libs\font-awesome-4.7.0\scss\_screen-reader.scss" />
     <None Include="Resources\Libs\font-awesome-4.7.0\scss\_stacked.scss" />
     <None Include="Resources\Libs\font-awesome-4.7.0\scss\_variables.scss" />
+    <None Include="Resources\Reports\revenue_by_customer_report.xlsx" />
+    <None Include="Resources\Reports\revenue_by_product_report.xlsx" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
