@@ -7,11 +7,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="headContentPlaceHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
-    <div id="header" class="bg-light px-4 py-3">
+    <div id="header" class="bg-white px-4 py-3">
         <div class="h4">
             Nhà cung cấp</div>
     </div>
-    <div id="body" class="bg-light">
+    <div id="body" class="bg-white">
         <div class="d-flex justify-content-between pl-4 py-3">
             <div class="flex-grow-1 row">
                 <div class="col-5">

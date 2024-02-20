@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-4">
                     <label for="customerDropDownList">
-                        Mã khách hàng</label>
+                        Tên khách hàng</label>
                     <asp:DropDownList ID="customerDropDownList" DataTextField="name" DataValueField="code"
                         class="form-control" runat="server">
                     </asp:DropDownList>

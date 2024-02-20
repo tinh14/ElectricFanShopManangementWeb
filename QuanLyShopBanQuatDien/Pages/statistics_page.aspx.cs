@@ -13,6 +13,11 @@ namespace QuanLyShopBanQuatDien.Pages
 {
     public partial class statistics_page : System.Web.UI.Page
     {
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            SecurityManager.authenticateAndAuthorize(this, SecurityManager.Permission.VIEW_STATISTICS);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)

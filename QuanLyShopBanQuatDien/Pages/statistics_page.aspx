@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../Resources/Libs/jquery-ui/jquery-ui.css">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
-    <div id="header" class="bg-light px-4 py-3">
+    <div id="header" class="bg-white px-4 py-3">
         <div class="d-flex justify-content-between">
             <div class="h4">
                 Thống kê</div>
@@ -18,7 +18,7 @@
             </asp:LinkButton>
         </div>
     </div>
-    <div id="body" class="bg-light">
+    <div id="body" class="bg-white">
         <div class="px-4 py-3">
             <div class="row">
                 <div class="col-6">

@@ -10,7 +10,7 @@ namespace QuanLyShopBanQuatDien.Database
     {
         private class DatabaseConfiguration
         {
-            public static string LOCAL_CONNECTION_STRING = @"Data Source=.\SQLEXPRESS;AttachDbFilename=D:\Projects\C# Projects\QuanLyShopBanQuatDien\QuanLyShopBanQuatDien\App_Data\QuanLyShopBanQuatDien.mdf;Integrated Security=True;User Instance=True";
+            public static string LOCAL_CONNECTION_STRING = @"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\QuanLyShopBanQuatDien.mdf;Integrated Security=True;User Instance=True";
         }
 
         public static SqlConnection openConnection()

@@ -101,6 +101,9 @@
     <Content Include="Resources\Libs\data-tables\jquery.dataTables.min.js" />
     <Content Include="Resources\Libs\jquery-ui\jquery-ui.js" />
     <Content Include="Resources\Libs\jquery-ui\jquery-ui.css" />
+    <Content Include="Resources\Libs\moment\moment.min.js" />
+    <Content Include="Resources\Libs\tempusdominus-bootstrap-4\tempusdominus-bootstrap-4.min.css" />
+    <Content Include="Resources\Libs\tempusdominus-bootstrap-4\tempusdominus-bootstrap-4.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -110,27 +113,27 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\ActivityLogDAO.cs" />
-    <Compile Include="DAO\CategoryDAO.cs" />
-    <Compile Include="DAO\SqlPameter.cs" />
-    <Compile Include="DAO\StatisticsDAO.cs" />
-    <Compile Include="DAO\CustomerDAO.cs" />
-    <Compile Include="DAO\GRNDAO.cs" />
-    <Compile Include="DAO\GRNDetailDAO.cs" />
-    <Compile Include="DAO\LogDAO.cs" />
-    <Compile Include="DAO\OrderDAO.cs" />
-    <Compile Include="DAO\OrderDetailDAO.cs" />
-    <Compile Include="DAO\PermissionDAO.cs" />
-    <Compile Include="DAO\ProductDAO.cs" />
-    <Compile Include="DAO\RoleDAO.cs" />
-    <Compile Include="DAO\RolePermissionDAO.cs" />
-    <Compile Include="DAO\SupplierDAO.cs" />
-    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="Daos\ActivityLogDAO.cs" />
+    <Compile Include="Daos\CategoryDAO.cs" />
+    <Compile Include="Daos\SqlPameter.cs" />
+    <Compile Include="Daos\StatisticsDAO.cs" />
+    <Compile Include="Daos\CustomerDAO.cs" />
+    <Compile Include="Daos\GRNDAO.cs" />
+    <Compile Include="Daos\GRNDetailDAO.cs" />
+    <Compile Include="Daos\LogDAO.cs" />
+    <Compile Include="Daos\OrderDAO.cs" />
+    <Compile Include="Daos\OrderDetailDAO.cs" />
+    <Compile Include="Daos\PermissionDAO.cs" />
+    <Compile Include="Daos\ProductDAO.cs" />
+    <Compile Include="Daos\RoleDAO.cs" />
+    <Compile Include="Daos\RolePermissionDAO.cs" />
+    <Compile Include="Daos\SupplierDAO.cs" />
+    <Compile Include="Daos\UserDAO.cs" />
     <Compile Include="Database\DatabaseConnectionProvider.cs" />
     <Compile Include="Database\DatabaseQueryExecutor.cs" />
-    <Compile Include="DTO\ResponseObject.cs" />
-    <Compile Include="DTO\RevenueByCustomerDTO.cs" />
-    <Compile Include="DTO\RevenueByProductDTO.cs" />
+    <Compile Include="Dtos\ResponseObjectDTO.cs" />
+    <Compile Include="Dtos\RevenueByCustomerDTO.cs" />
+    <Compile Include="Dtos\RevenueByProductDTO.cs" />
     <Compile Include="Entities\ActivityLogEntity.cs" />
     <Compile Include="Entities\CategoryEntity.cs" />
     <Compile Include="Entities\CustomerEntity.cs" />

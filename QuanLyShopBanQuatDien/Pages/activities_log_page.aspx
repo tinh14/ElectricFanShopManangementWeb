@@ -6,14 +6,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="headContentPlaceHolder" runat="server">
     <link rel="stylesheet" href="../Resources/Libs/jquery-ui/jquery-ui.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="../Resources/Libs/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
-    <div id="header" class="bg-light px-4 py-3">
+    <div id="header" class="bg-white px-4 py-3">
         <div class="h4">
             Nhật ký hoạt động</div>
     </div>
-    <div id="body" class="bg-light">
+    <div id="body" class="bg-white">
         <div class="d-flex justify-content-between pl-4 py-3">
             <div class="flex-grow-1 row">
                 <div class="col-3">
@@ -77,8 +77,8 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="script" runat="server">
     <script type="text/javascript" src="../Resources/Libs/jquery-ui/jquery-ui.js"></script>
     <script type="text/javascript" src="../Resources/Custom/Js/table-datasource-common-config.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script type="text/javascript" src="../Resources/Libs/moment/moment.min.js"></script>
+    <script type="text/javascript" src="../Resources/Libs/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js"></script>
     <script type="text/javascript">
         $('#startDateTextBox').datetimepicker({
             useCurrent: false,
@@ -97,7 +97,6 @@
         $('#endDateTextBox').on('click', function () {
             $(this).datetimepicker('show');
         });
-
 
     </script>
 </asp:Content>

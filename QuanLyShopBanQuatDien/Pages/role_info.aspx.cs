@@ -177,10 +177,10 @@ namespace QuanLyShopBanQuatDien.Pages
                 }
             }
 
-            if (code.Length > 15)
+            if (code.Length > 30)
             {
                 args.IsValid = false;
-                codeValidator.ErrorMessage = "Mã vai trò phải ít hơn 15 ký tự";
+                codeValidator.ErrorMessage = "Mã vai trò phải ít hơn 30 ký tự";
                 return;
             }
 

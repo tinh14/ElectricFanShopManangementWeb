@@ -66,11 +66,12 @@
                     <i class="fa fa-user mr-2"></i>
                     <span class="font-weight-bold">Nhân viên</span>
             </asp:LinkButton>
-            <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0 mb-5"
+            <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
                 ID="statisticsLinkButton" href="statistics_page.aspx" runat="server">
                     <i class="fa fa-bar-chart-o mr-2"></i>
                     <span class="font-weight-bold">Thống kê</span>
             </asp:LinkButton>
+            <hr class="my-2" />
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
                 ID="roleLinkButton" href="role_page.aspx" runat="server">
                     <i class="fa fa-shield mr-2"></i>
@@ -86,13 +87,14 @@
                     <i class="fa fa-history mr-2"></i>
                     <span class="font-weight-bold">Nhật ký thao tác</span>
             </asp:LinkButton>--%>
+            <hr class="my-2" />
             <asp:LinkButton class="btn btn-light text-secondary btn-block text-left py-3 mt-0"
                 ID="signoutLinkButton" runat="server" OnClick="signoutLinkButton_Click">
                     <i class="fa fa-sign-out mr-2"></i>
                     <span class="font-weight-bold">Đăng xuất</span>
             </asp:LinkButton>
         </div>
-        <div id="main" class="d-flex flex-column bg-light">
+        <div id="main" class="d-flex flex-column bg-white">
             <asp:ContentPlaceHolder ID="mainContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
         </div>

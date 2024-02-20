@@ -2,17 +2,22 @@
     var endpointMapper = {
         "home_page.aspx": "homeLinkButton",
         "order_page.aspx": "orderLinkButton",
-        "grn_page.aspx": "GRNLinkButton",
+        "order_info.aspx": "orderLinkButton",
         "product_page.aspx": "productLinkButton",
+        "product_info.aspx": "productLinkButton",
         "category_page.aspx": "categoryLinkButton",
+        "category_info.aspx": "categoryLinkButton",
         "customer_page.aspx": "customerLinkButotn",
-        "supplier_page.aspx": "supplierLinkButton",
+        "customer_info.aspx": "customerLinkButotn",
         "user_page.aspx": "userLinkButton",
+        "user_info.aspx": "userLinkButton",
         "statistic_page.aspx": "statisticsLinkButton",
         "role_page.aspx": "roleLinkButton",
+        "role_info.aspx": "roleLinkButton",
         "activities_log_page.aspx": "activityLogLinkButton",
-        "operations_log_page.aspx": "operationLogLinkButton",
-        "signin_page.aspx": "signoutLinkButton"
+        "activities_log_info.aspx": "activityLogLinkButton",
+        "signin_page.aspx": "signoutLinkButton",
+        "statistics_page.aspx": "statisticsLinkButton"
     };
     var path = window.location.pathname;
     var endpoint = path.substring(path.lastIndexOf('/') + 1);

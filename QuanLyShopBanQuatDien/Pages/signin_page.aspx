@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="signin_page.aspx.cs" Inherits="QuanLyShopBanQuatDien.Pages.signin_page" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Đăng nhập</title>
@@ -12,7 +11,7 @@
     <form id="form1" runat="server">
     <div id="app" class="container-fluid overflow-hidden bg-light">
         <div class="row d-flex align-items-center justify-content-center h-100">
-            <div class="col-4 bg-warning bg-white shadow px-4 pb-2">
+            <div class="col-4 bg-warning bg-white border shadow px-4 pb-2">
                 <div class="form-group text-center mt-5 mb-4">
                     <div class="h2">Đăng nhập</div>
                 </div>
